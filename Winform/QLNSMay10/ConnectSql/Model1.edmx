@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QLNVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="255" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="15" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PrintInfo">
+          <Key>
+            <PropertyRef Name="PrintID" />
+          </Key>
+          <Property Name="PrintID" Type="int" Nullable="false" />
+          <Property Name="Content" Type="text" />
+          <Property Name="Format" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="StatID" />
+          </Key>
+          <Property Name="StatID" Type="int" Nullable="false" />
+          <Property Name="Month" Type="int" />
+          <Property Name="Quarter" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="EmployeeCount" Type="int" />
+          <Property Name="TotalSalary" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="EmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="SalaryPayments">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="PaymentDate" Type="date" />
+          <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SalaryPolicies">
+          <Key>
+            <PropertyRef Name="PolicyID" />
+          </Key>
+          <Property Name="PolicyID" Type="int" Nullable="false" />
+          <Property Name="BasicSalary" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Bonus" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="PolicyDescription" Type="varchar" MaxLength="255" />
+          <Property Name="EmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="SearchInfo">
+          <Key>
+            <PropertyRef Name="SearchID" />
+          </Key>
+          <Property Name="SearchID" Type="int" Nullable="false" />
+          <Property Name="Keyword" Type="varchar" MaxLength="50" />
+          <Property Name="Result" Type="text" />
+          <Property Name="EmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nchar" MaxLength="20" />
+          <Property Name="PWord" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="WorkHistory">
+          <Key>
+            <PropertyRef Name="HistoryID" />
+          </Key>
+          <Property Name="HistoryID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="JobDescription" Type="text" />
+        </EntityType>
+        <Association Name="FK__PrintInfo__Emplo__47DBAE45">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="PrintInfo" Type="Self.PrintInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="PrintInfo">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Report__Employee__44FF419A">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SalaryPay__Emplo__3F466844">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="SalaryPayments" Type="Self.SalaryPayments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="SalaryPayments">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SalaryPol__Emplo__398D8EEE">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="SalaryPolicies" Type="Self.SalaryPolicies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="SalaryPolicies">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SearchInf__Emplo__4222D4EF">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="SearchInfo" Type="Self.SearchInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="SearchInfo">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WorkHisto__Emplo__3C69FB99">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="WorkHistory" Type="Self.WorkHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="WorkHistory">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QLNVModelStoreContainer">
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PrintInfo" EntityType="Self.PrintInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryPayments" EntityType="Self.SalaryPayments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryPolicies" EntityType="Self.SalaryPolicies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SearchInfo" EntityType="Self.SearchInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkHistory" EntityType="Self.WorkHistory" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__PrintInfo__Emplo__47DBAE45" Association="Self.FK__PrintInfo__Emplo__47DBAE45">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="PrintInfo" EntitySet="PrintInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Report__Employee__44FF419A" Association="Self.FK__Report__Employee__44FF419A">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Report" EntitySet="Report" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SalaryPay__Emplo__3F466844" Association="Self.FK__SalaryPay__Emplo__3F466844">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="SalaryPayments" EntitySet="SalaryPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SalaryPol__Emplo__398D8EEE" Association="Self.FK__SalaryPol__Emplo__398D8EEE">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="SalaryPolicies" EntitySet="SalaryPolicies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SearchInf__Emplo__4222D4EF" Association="Self.FK__SearchInf__Emplo__4222D4EF">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="SearchInfo" EntitySet="SearchInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WorkHisto__Emplo__3C69FB99" Association="Self.FK__WorkHisto__Emplo__3C69FB99">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="WorkHistory" EntitySet="WorkHistory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLNVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QLNVEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employees" EntityType="QLNVModel.Employee" />
+          <EntitySet Name="PrintInfoes" EntityType="QLNVModel.PrintInfo" />
+          <EntitySet Name="Reports" EntityType="QLNVModel.Report" />
+          <EntitySet Name="SalaryPayments" EntityType="QLNVModel.SalaryPayment" />
+          <EntitySet Name="SalaryPolicies" EntityType="QLNVModel.SalaryPolicy" />
+          <EntitySet Name="SearchInfoes" EntityType="QLNVModel.SearchInfo" />
+          <EntitySet Name="Users" EntityType="QLNVModel.User" />
+          <EntitySet Name="WorkHistories" EntityType="QLNVModel.WorkHistory" />
+          <AssociationSet Name="FK__PrintInfo__Emplo__47DBAE45" Association="QLNVModel.FK__PrintInfo__Emplo__47DBAE45">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="PrintInfo" EntitySet="PrintInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Report__Employee__44FF419A" Association="QLNVModel.FK__Report__Employee__44FF419A">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SalaryPay__Emplo__3F466844" Association="QLNVModel.FK__SalaryPay__Emplo__3F466844">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="SalaryPayment" EntitySet="SalaryPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SalaryPol__Emplo__398D8EEE" Association="QLNVModel.FK__SalaryPol__Emplo__398D8EEE">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="SalaryPolicy" EntitySet="SalaryPolicies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SearchInf__Emplo__4222D4EF" Association="QLNVModel.FK__SearchInf__Emplo__4222D4EF">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="SearchInfo" EntitySet="SearchInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WorkHisto__Emplo__3C69FB99" Association="QLNVModel.FK__WorkHisto__Emplo__3C69FB99">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="WorkHistory" EntitySet="WorkHistories" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PrintInfoes" Relationship="QLNVModel.FK__PrintInfo__Emplo__47DBAE45" FromRole="Employee" ToRole="PrintInfo" />
+          <NavigationProperty Name="Reports" Relationship="QLNVModel.FK__Report__Employee__44FF419A" FromRole="Employee" ToRole="Report" />
+          <NavigationProperty Name="SalaryPayments" Relationship="QLNVModel.FK__SalaryPay__Emplo__3F466844" FromRole="Employee" ToRole="SalaryPayment" />
+          <NavigationProperty Name="SalaryPolicies" Relationship="QLNVModel.FK__SalaryPol__Emplo__398D8EEE" FromRole="Employee" ToRole="SalaryPolicy" />
+          <NavigationProperty Name="SearchInfoes" Relationship="QLNVModel.FK__SearchInf__Emplo__4222D4EF" FromRole="Employee" ToRole="SearchInfo" />
+          <NavigationProperty Name="WorkHistories" Relationship="QLNVModel.FK__WorkHisto__Emplo__3C69FB99" FromRole="Employee" ToRole="WorkHistory" />
+        </EntityType>
+        <EntityType Name="PrintInfo">
+          <Key>
+            <PropertyRef Name="PrintID" />
+          </Key>
+          <Property Name="PrintID" Type="Int32" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Format" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="QLNVModel.FK__PrintInfo__Emplo__47DBAE45" FromRole="PrintInfo" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="StatID" />
+          </Key>
+          <Property Name="StatID" Type="Int32" Nullable="false" />
+          <Property Name="Month" Type="Int32" />
+          <Property Name="Quarter" Type="Int32" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="EmployeeCount" Type="Int32" />
+          <Property Name="TotalSalary" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="QLNVModel.FK__Report__Employee__44FF419A" FromRole="Report" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="SalaryPayment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="PaymentDate" Type="DateTime" Precision="0" />
+          <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employee" Relationship="QLNVModel.FK__SalaryPay__Emplo__3F466844" FromRole="SalaryPayment" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="SalaryPolicy">
+          <Key>
+            <PropertyRef Name="PolicyID" />
+          </Key>
+          <Property Name="PolicyID" Type="Int32" Nullable="false" />
+          <Property Name="BasicSalary" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Bonus" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="PolicyDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="QLNVModel.FK__SalaryPol__Emplo__398D8EEE" FromRole="SalaryPolicy" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="SearchInfo">
+          <Key>
+            <PropertyRef Name="SearchID" />
+          </Key>
+          <Property Name="SearchID" Type="Int32" Nullable="false" />
+          <Property Name="Keyword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="QLNVModel.FK__SearchInf__Emplo__4222D4EF" FromRole="SearchInfo" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="PWord" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="WorkHistory">
+          <Key>
+            <PropertyRef Name="HistoryID" />
+          </Key>
+          <Property Name="HistoryID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employee" Relationship="QLNVModel.FK__WorkHisto__Emplo__3C69FB99" FromRole="WorkHistory" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK__PrintInfo__Emplo__47DBAE45">
+          <End Type="QLNVModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="QLNVModel.PrintInfo" Role="PrintInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="PrintInfo">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Report__Employee__44FF419A">
+          <End Type="QLNVModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="QLNVModel.Report" Role="Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SalaryPay__Emplo__3F466844">
+          <End Type="QLNVModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="QLNVModel.SalaryPayment" Role="SalaryPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="SalaryPayment">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SalaryPol__Emplo__398D8EEE">
+          <End Type="QLNVModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="QLNVModel.SalaryPolicy" Role="SalaryPolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="SalaryPolicy">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SearchInf__Emplo__4222D4EF">
+          <End Type="QLNVModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="QLNVModel.SearchInfo" Role="SearchInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="SearchInfo">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WorkHisto__Emplo__3C69FB99">
+          <End Type="QLNVModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="QLNVModel.WorkHistory" Role="WorkHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="WorkHistory">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLNVModelStoreContainer" CdmEntityContainer="QLNVEntities">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="QLNVModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PrintInfoes">
+            <EntityTypeMapping TypeName="QLNVModel.PrintInfo">
+              <MappingFragment StoreEntitySet="PrintInfo">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Format" ColumnName="Format" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="PrintID" ColumnName="PrintID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="QLNVModel.Report">
+              <MappingFragment StoreEntitySet="Report">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="TotalSalary" ColumnName="TotalSalary" />
+                <ScalarProperty Name="EmployeeCount" ColumnName="EmployeeCount" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="StatID" ColumnName="StatID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryPayments">
+            <EntityTypeMapping TypeName="QLNVModel.SalaryPayment">
+              <MappingFragment StoreEntitySet="SalaryPayments">
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryPolicies">
+            <EntityTypeMapping TypeName="QLNVModel.SalaryPolicy">
+              <MappingFragment StoreEntitySet="SalaryPolicies">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="PolicyDescription" ColumnName="PolicyDescription" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+                <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+                <ScalarProperty Name="PolicyID" ColumnName="PolicyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SearchInfoes">
+            <EntityTypeMapping TypeName="QLNVModel.SearchInfo">
+              <MappingFragment StoreEntitySet="SearchInfo">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="SearchID" ColumnName="SearchID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="QLNVModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="PWord" ColumnName="PWord" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkHistories">
+            <EntityTypeMapping TypeName="QLNVModel.WorkHistory">
+              <MappingFragment StoreEntitySet="WorkHistory">
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="HistoryID" ColumnName="HistoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

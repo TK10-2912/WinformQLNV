@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eea66d3c116246c68bd6a210822fb01b" Name="Diagram1">
+        <EntityTypeShape EntityType="QLNVModel.Employee" Width="1.5" PointX="0.75" PointY="8.375" />
+        <EntityTypeShape EntityType="QLNVModel.PrintInfo" Width="1.5" PointX="3" PointY="7.875" />
+        <EntityTypeShape EntityType="QLNVModel.Report" Width="1.5" PointX="3" PointY="1.625" />
+        <EntityTypeShape EntityType="QLNVModel.SalaryPayment" Width="1.5" PointX="3" PointY="16.25" />
+        <EntityTypeShape EntityType="QLNVModel.SalaryPolicy" Width="1.5" PointX="3" PointY="13.375" />
+        <EntityTypeShape EntityType="QLNVModel.SearchInfo" Width="1.5" PointX="3" PointY="10.625" />
+        <EntityTypeShape EntityType="QLNVModel.User" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QLNVModel.WorkHistory" Width="1.5" PointX="3" PointY="5" />
+        <AssociationConnector Association="QLNVModel.FK__PrintInfo__Emplo__47DBAE45" />
+        <AssociationConnector Association="QLNVModel.FK__Report__Employee__44FF419A" />
+        <AssociationConnector Association="QLNVModel.FK__SalaryPay__Emplo__3F466844" />
+        <AssociationConnector Association="QLNVModel.FK__SalaryPol__Emplo__398D8EEE" />
+        <AssociationConnector Association="QLNVModel.FK__SearchInf__Emplo__4222D4EF" />
+        <AssociationConnector Association="QLNVModel.FK__WorkHisto__Emplo__3C69FB99" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
