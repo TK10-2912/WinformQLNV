@@ -44,11 +44,7 @@ namespace QLNSMay10
         private void Doimk_Click(object sender, EventArgs e)
         {
             FormChangePassword chForm = new FormChangePassword();
-
-            
             chForm.MdiParent = this;
-
-            //Display the child window
             chForm.Show();
         }
     }

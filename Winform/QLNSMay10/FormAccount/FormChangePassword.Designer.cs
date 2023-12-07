@@ -107,7 +107,8 @@
             // 
             // FormChangePassword
             // 
-            this.ClientSize = new System.Drawing.Size(479, 335);
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.ClientSize = new System.Drawing.Size(452, 330);
             this.Controls.Add(this.txtRePassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
@@ -118,6 +119,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormChangePassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.ResumeLayout(false);
             this.PerformLayout();
 

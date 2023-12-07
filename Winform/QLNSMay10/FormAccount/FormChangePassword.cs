@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace QLNSMay10.FormAccount
         public FormChangePassword()
         {
             InitializeComponent();
+            this.Opacity = 1;
         }
         Session session=Session.instance();
         QLNVEntities db = new QLNVEntities();
@@ -26,21 +28,24 @@ namespace QLNSMay10.FormAccount
             string newPassword = txtNewPassword.Text;
             string rePassword = txtRePassword.Text;
             System.Console.WriteLine("user" + JsonConvert.SerializeObject( session.userLogin));
-            var listUser = db.Users.Where(A => A.UserId == session.userLogin.UserId).ToList();
-            if(rePassword != newPassword)
+            var user = db.Users.SingleOrDefault(A => A.UserId == session.userLogin.UserId);
+            if(user != null)
             {
-                MessageBox.Show("Mật khẩu và xác nhận mật khẩu không khớp.", "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (rePassword != newPassword)
+                {
+                    MessageBox.Show("Mật khẩu và xác nhận mật khẩu không khớp.", "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                user.PWord = newPassword;
+                db.SaveChanges();
+                MessageBox.Show("Đổi mật khẩu thành công.", "Thông báo",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            //if (listUser.Count == 1)
-            //{
-               
-            //}
             else
             {
                 MessageBox.Show("Some text", "Some title",
-            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
