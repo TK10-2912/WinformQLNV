@@ -45,6 +45,17 @@ namespace QLNSMay10
         {
             FormChangePassword chForm = new FormChangePassword();
             chForm.MdiParent = this;
+            chForm.FormBorderStyle = FormBorderStyle.None;
+            chForm.Dock = DockStyle.Fill;
+            chForm.Show();
+        }
+
+        private void qltk_Click(object sender, EventArgs e)
+        {
+            FormManagerAcount chForm = new FormManagerAcount();
+            chForm.MdiParent = this;
+            chForm.FormBorderStyle = FormBorderStyle.None;
+            chForm.Dock = DockStyle.Fill;
             chForm.Show();
         }
     }

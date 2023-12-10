@@ -104,6 +104,12 @@
     <Compile Include="FormAccount\FormChangePassword.Designer.cs">
       <DependentUpon>FormChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAccount\FormManagerAcount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccount\FormManagerAcount.Designer.cs">
+      <DependentUpon>FormManagerAcount.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,8 +136,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLNVDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLNVDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormAccount\FormChangePassword.resx">
       <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAccount\FormManagerAcount.resx">
+      <DependentUpon>FormManagerAcount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -177,6 +191,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="QLNVDataSet.xsc">
+      <DependentUpon>QLNVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLNVDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLNVDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLNVDataSet.xss">
+      <DependentUpon>QLNVDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\pngwing.com %283%29.png" />
   </ItemGroup>
   <ItemGroup>

@@ -108,7 +108,7 @@
             // FormChangePassword
             // 
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(452, 330);
+            this.ClientSize = new System.Drawing.Size(609, 400);
             this.Controls.Add(this.txtRePassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);

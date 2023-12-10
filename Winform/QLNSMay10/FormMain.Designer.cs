@@ -115,6 +115,7 @@
             this.qltk.Name = "qltk";
             this.qltk.Size = new System.Drawing.Size(193, 24);
             this.qltk.Text = "Quản lý tài khoản";
+            this.qltk.Click += new System.EventHandler(this.qltk_Click);
             // 
             // đăngXuấtToolStripMenuItem1
             // 
