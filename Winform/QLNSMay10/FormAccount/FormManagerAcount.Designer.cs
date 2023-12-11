@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,18 +36,10 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.grvAcount = new System.Windows.Forms.DataGridView();
-            this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pWordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLNVDataSet = new QLNSMay10.QLNVDataSet();
-            this.userTableAdapter = new QLNSMay10.QLNVDataSetTableAdapters.UserTableAdapter();
             this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grvAcount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -104,83 +95,47 @@
             // 
             this.txtUsername.Location = new System.Drawing.Point(185, 135);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(100, 20);
+            this.txtUsername.Size = new System.Drawing.Size(100, 22);
             this.txtUsername.TabIndex = 5;
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(471, 135);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(122, 20);
+            this.txtPassword.Size = new System.Drawing.Size(122, 22);
             this.txtPassword.TabIndex = 6;
             // 
             // grvAcount
             // 
-            this.grvAcount.AutoGenerateColumns = false;
             this.grvAcount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvAcount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.userIdDataGridViewTextBoxColumn,
-            this.userNameDataGridViewTextBoxColumn,
-            this.pWordDataGridViewTextBoxColumn,
             this.edit,
             this.delete});
-            this.grvAcount.DataSource = this.userBindingSource;
             this.grvAcount.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grvAcount.Location = new System.Drawing.Point(0, 225);
             this.grvAcount.Name = "grvAcount";
+            this.grvAcount.RowHeadersWidth = 51;
             this.grvAcount.Size = new System.Drawing.Size(681, 141);
             this.grvAcount.TabIndex = 7;
             this.grvAcount.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // userIdDataGridViewTextBoxColumn
-            // 
-            this.userIdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
-            this.userIdDataGridViewTextBoxColumn.HeaderText = "UserId";
-            this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
-            this.userIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // userNameDataGridViewTextBoxColumn
-            // 
-            this.userNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
-            this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
-            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
-            // 
-            // pWordDataGridViewTextBoxColumn
-            // 
-            this.pWordDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.pWordDataGridViewTextBoxColumn.DataPropertyName = "PWord";
-            this.pWordDataGridViewTextBoxColumn.HeaderText = "PWord";
-            this.pWordDataGridViewTextBoxColumn.Name = "pWordDataGridViewTextBoxColumn";
-            // 
             // edit
             // 
             this.edit.HeaderText = "";
+            this.edit.MinimumWidth = 6;
             this.edit.Name = "edit";
             this.edit.Text = "Chỉnh sửa";
             this.edit.UseColumnTextForButtonValue = true;
+            this.edit.Width = 125;
             // 
             // delete
             // 
             this.delete.HeaderText = "";
+            this.delete.MinimumWidth = 6;
             this.delete.Name = "delete";
             this.delete.Text = "Xóa";
             this.delete.UseColumnTextForButtonValue = true;
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataMember = "User";
-            this.userBindingSource.DataSource = this.qLNVDataSet;
-            // 
-            // qLNVDataSet
-            // 
-            this.qLNVDataSet.DataSetName = "QLNVDataSet";
-            this.qLNVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // userTableAdapter
-            // 
-            this.userTableAdapter.ClearBeforeFill = true;
+            this.delete.Width = 125;
             // 
             // btnAdd
             // 
@@ -207,8 +162,6 @@
             this.Name = "FormManagerAcount";
             this.Load += new System.EventHandler(this.FormManagerAcount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grvAcount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,12 +177,6 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.DataGridView grvAcount;
-        private QLNVDataSet qLNVDataSet;
-        private System.Windows.Forms.BindingSource userBindingSource;
-        private QLNVDataSetTableAdapters.UserTableAdapter userTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pWordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn edit;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
         private System.Windows.Forms.Button btnAdd;
