@@ -17,7 +17,7 @@ namespace QLNSMay10.Classes
             }
             return _init;
         }
-        public User userLogin { get; set; }
+        public NguoiDung userLogin { get; set; }
         private Session() { }
         
         

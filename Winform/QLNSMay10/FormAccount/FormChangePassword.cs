@@ -28,7 +28,7 @@ namespace QLNSMay10.FormAccount
             string newPassword = txtNewPassword.Text;
             string rePassword = txtRePassword.Text;
             System.Console.WriteLine("user" + JsonConvert.SerializeObject( session.userLogin));
-            var user = db.Users.SingleOrDefault(A => A.UserId == session.userLogin.UserId);
+            var user = db.NguoiDungs.SingleOrDefault(A => A.MaNguoiDung == session.userLogin.MaNguoiDung);
             if(user != null)
             {
                 if (rePassword != newPassword)
@@ -37,7 +37,7 @@ namespace QLNSMay10.FormAccount
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                user.PWord = newPassword;
+                user.Password = newPassword;
                 db.SaveChanges();
                 MessageBox.Show("Đổi mật khẩu thành công.", "Thông báo",
                    MessageBoxButtons.OK, MessageBoxIcon.Information);
