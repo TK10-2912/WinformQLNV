@@ -26,7 +26,7 @@ namespace QLNSMay10
         {
             string userName = txtUserName.Text;
             string password = txtPassword.Text;
-           var listUser= db.NguoiDungs.Where(A=>A.Username==userName && A.Password==password).ToList();
+           var listUser= db.NguoiDung.Where(A=>A.Username==userName && A.Password==password).ToList();
             if(listUser.Count == 1)
             {
                 FormMain mainTab = new FormMain();

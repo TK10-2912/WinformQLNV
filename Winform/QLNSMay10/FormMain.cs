@@ -1,4 +1,5 @@
 ﻿using QLNSMay10.FormAccount;
+using QLNSMay10.Luong;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,6 +58,15 @@ namespace QLNSMay10
             chForm.FormBorderStyle = FormBorderStyle.None;
             chForm.Dock = DockStyle.Fill;
             chForm.Show();
+        }
+
+        private void bảngLươngToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            BangLuong bangluong = new BangLuong();
+            bangluong.MdiParent = this;
+            bangluong.FormBorderStyle = FormBorderStyle.None;
+            bangluong.Dock = DockStyle.Fill;
+            bangluong.Show();
         }
     }
 }
