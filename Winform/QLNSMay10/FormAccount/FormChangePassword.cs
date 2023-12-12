@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QLNSMay10.FormAccount
 {
@@ -19,6 +20,9 @@ namespace QLNSMay10.FormAccount
         {
             InitializeComponent();
             this.Opacity = 1;
+            txtPassword.PasswordChar = '*';
+            txtNewPassword.PasswordChar = '*';
+            txtRePassword.PasswordChar = '*';
         }
         Session session=Session.instance();
         QLNVEntities db = new QLNVEntities();
