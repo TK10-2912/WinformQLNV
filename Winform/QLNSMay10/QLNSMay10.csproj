@@ -59,7 +59,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Session.cs" />
-    <Compile Include="ConnectSql\Employee.cs">
+    <Compile Include="ConnectSql\ChucVu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectSql\HeSoLuong.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectSql\Luong.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ConnectSql\Model1.Context.cs">
@@ -77,25 +83,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ConnectSql\PrintInfo.cs">
+    <Compile Include="ConnectSql\NguoiDung.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ConnectSql\Report.cs">
+    <Compile Include="ConnectSql\NhanVien.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ConnectSql\SalaryPayment.cs">
+    <Compile Include="ConnectSql\PhongBan.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ConnectSql\SalaryPolicy.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConnectSql\SearchInfo.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConnectSql\User.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConnectSql\WorkHistory.cs">
+    <Compile Include="ConnectSql\ThoiGianCongTac.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="FormAccount\FormChangePassword.cs">
@@ -116,23 +113,29 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAccount\FormSignup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAccount\FormSignup.Designer.cs">
-      <DependentUpon>FormSignup.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormAccount\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAccount\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPhucap.cs">
+    <Compile Include="ForrmNV\FormChucVu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPhucap.Designer.cs">
-      <DependentUpon>FormPhucap.cs</DependentUpon>
+    <Compile Include="ForrmNV\FormChucVu.Designer.cs">
+      <DependentUpon>FormChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ForrmNV\FormPhongBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForrmNV\FormPhongBan.Designer.cs">
+      <DependentUpon>FormPhongBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ForrmNV\FormQLNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForrmNV\FormQLNV.Designer.cs">
+      <DependentUpon>FormQLNV.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,6 +143,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLNVDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLNVDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLNVDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLNVDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLNVDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLNVDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLNVDataSet3.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormAccount\FormChangePassword.resx">
       <DependentUpon>FormChangePassword.cs</DependentUpon>
@@ -150,14 +168,17 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAccount\FormSignup.resx">
-      <DependentUpon>FormSignup.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormAccount\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPhucap.resx">
-      <DependentUpon>FormPhucap.cs</DependentUpon>
+    <EmbeddedResource Include="ForrmNV\FormChucVu.resx">
+      <DependentUpon>FormChucVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForrmNV\FormPhongBan.resx">
+      <DependentUpon>FormPhongBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForrmNV\FormQLNV.resx">
+      <DependentUpon>FormQLNV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -201,6 +222,39 @@
     </None>
     <None Include="QLNVDataSet.xss">
       <DependentUpon>QLNVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLNVDataSet1.xsc">
+      <DependentUpon>QLNVDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLNVDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLNVDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLNVDataSet1.xss">
+      <DependentUpon>QLNVDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLNVDataSet2.xsc">
+      <DependentUpon>QLNVDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QLNVDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLNVDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLNVDataSet2.xss">
+      <DependentUpon>QLNVDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QLNVDataSet3.xsc">
+      <DependentUpon>QLNVDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QLNVDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLNVDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLNVDataSet3.xss">
+      <DependentUpon>QLNVDataSet3.xsd</DependentUpon>
     </None>
     <None Include="Resources\pngwing.com %283%29.png" />
   </ItemGroup>
@@ -342,7 +396,6 @@
   <ItemGroup>
     <None Include="Resources\businessman-2753324_1280.jpg" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
