@@ -1,5 +1,9 @@
-﻿using QLNSMay10.FormAccount;
-using QLNSMay10.Luong;
+﻿using QLNSMay10.CongTac;
+using QLNSMay10.FormAccount;
+using QLNSMay10.ForrmNV;
+using QLNSMay10.Hotro;
+using QLNSMay10.LuongHSL;
+using QLNSMay10.Thongke;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,13 +39,6 @@ namespace QLNSMay10
             FormLogin f = new FormLogin();
             f.Show();
         }
-
-        private void btnPhucap_Click(object sender, EventArgs e)
-        {
-            FormPhucap f = new FormPhucap();
-            f.Show();
-        }
-
         private void Doimk_Click(object sender, EventArgs e)
         {
             FormChangePassword chForm = new FormChangePassword();
@@ -62,11 +59,75 @@ namespace QLNSMay10
 
         private void bảngLươngToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            BangLuong bangluong = new BangLuong();
-            bangluong.MdiParent = this;
-            bangluong.FormBorderStyle = FormBorderStyle.None;
-            bangluong.Dock = DockStyle.Fill;
-            bangluong.Show();
+            FormLuong chForm = new FormLuong();
+            chForm.MdiParent = this;
+            chForm.FormBorderStyle = FormBorderStyle.None;
+            chForm.Dock = DockStyle.Fill;
+            chForm.Show();
+        }
+
+        private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormQLNV chForm = new FormQLNV();
+            chForm.MdiParent = this;
+            chForm.FormBorderStyle = FormBorderStyle.None;
+            chForm.Dock = DockStyle.Fill;
+            chForm.Show();
+        }
+
+        private void quảnLýPhongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPhongBan chForm = new FormPhongBan();
+            chForm.MdiParent = this;
+            chForm.FormBorderStyle = FormBorderStyle.None;
+            chForm.Dock = DockStyle.Fill;
+            chForm.Show();
+        }
+
+        private void chứcVụToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormChucVu chForm = new FormChucVu();
+            chForm.MdiParent = this;
+            chForm.FormBorderStyle = FormBorderStyle.None;
+            chForm.Dock = DockStyle.Fill;
+            chForm.Show();
+        }
+
+        private void hệSốLươngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHSL chForm = new FormHSL();
+            chForm.MdiParent = this;
+            chForm.FormBorderStyle = FormBorderStyle.None;
+            chForm.Dock = DockStyle.Fill;
+            chForm.Show();
+        }
+
+        private void quảnLýQuáTrìnhCôngTácToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCongTac chForm = new FormCongTac();
+            chForm.MdiParent = this;
+            chForm.FormBorderStyle = FormBorderStyle.None;
+            chForm.Dock = DockStyle.Fill;
+            chForm.Show();
+
+        }
+
+        private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormThongke chForm = new FormThongke();
+            chForm.MdiParent = this;
+            chForm.FormBorderStyle = FormBorderStyle.None;
+            chForm.Dock = DockStyle.Fill;
+            chForm.Show();
+        }
+
+        private void báoCáoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1Hotro chForm = new Form1Hotro();
+            chForm.MdiParent = this;
+            chForm.FormBorderStyle = FormBorderStyle.None;
+            chForm.Dock = DockStyle.Fill;
+            chForm.Show();
         }
     }
 }

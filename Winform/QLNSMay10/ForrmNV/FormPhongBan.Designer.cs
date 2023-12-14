@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,21 +41,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.qLNVDataSet = new QLNSMay10.QLNVDataSet();
-            this.qLNVDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nhanVienTableAdapter = new QLNSMay10.QLNVDataSetTableAdapters.NhanVienTableAdapter();
-            this.nhanVienBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.qLNVDataSet2 = new QLNSMay10.QLNVDataSet2();
-            this.phongBanBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.phongBanTableAdapter = new QLNSMay10.QLNVDataSet2TableAdapters.PhongBanTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phongBanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -182,44 +167,6 @@
             this.button2.Text = "Xoá";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // qLNVDataSet
-            // 
-            this.qLNVDataSet.DataSetName = "QLNVDataSet";
-            this.qLNVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // qLNVDataSetBindingSource
-            // 
-            this.qLNVDataSetBindingSource.DataSource = this.qLNVDataSet;
-            this.qLNVDataSetBindingSource.Position = 0;
-            // 
-            // nhanVienBindingSource
-            // 
-            this.nhanVienBindingSource.DataMember = "NhanVien";
-            this.nhanVienBindingSource.DataSource = this.qLNVDataSetBindingSource;
-            // 
-            // nhanVienTableAdapter
-            // 
-            this.nhanVienTableAdapter.ClearBeforeFill = true;
-            // 
-            // nhanVienBindingSource1
-            // 
-            this.nhanVienBindingSource1.DataMember = "NhanVien";
-            this.nhanVienBindingSource1.DataSource = this.qLNVDataSetBindingSource;
-            // 
-            // qLNVDataSet2
-            // 
-            this.qLNVDataSet2.DataSetName = "QLNVDataSet2";
-            this.qLNVDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // phongBanBindingSource
-            // 
-            this.phongBanBindingSource.DataMember = "PhongBan";
-            this.phongBanBindingSource.DataSource = this.qLNVDataSet2;
-            // 
-            // phongBanTableAdapter
-            // 
-            this.phongBanTableAdapter.ClearBeforeFill = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -254,12 +201,6 @@
             this.Name = "FormPhongBan";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormPhongBan_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phongBanBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -281,14 +222,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private QLNVDataSet qLNVDataSet;
-        private System.Windows.Forms.BindingSource qLNVDataSetBindingSource;
-        private System.Windows.Forms.BindingSource nhanVienBindingSource;
-        private QLNVDataSetTableAdapters.NhanVienTableAdapter nhanVienTableAdapter;
-        private System.Windows.Forms.BindingSource nhanVienBindingSource1;
-        private QLNVDataSet2 qLNVDataSet2;
-        private System.Windows.Forms.BindingSource phongBanBindingSource;
-        private QLNVDataSet2TableAdapters.PhongBanTableAdapter phongBanTableAdapter;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -102,6 +102,11 @@
     <Compile Include="ConnectSql\ThoiGianCongTac.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataChucVu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataChucVu.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormAccount\FormChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,11 +149,23 @@
     <Compile Include="ForrmNV\FormQLNV.Designer.cs">
       <DependentUpon>FormQLNV.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hotro\Form1Hotro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hotro\Form1Hotro.Designer.cs">
+      <DependentUpon>Form1Hotro.cs</DependentUpon>
+    </Compile>
     <Compile Include="LuongHSL\FormHSL.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LuongHSL\FormHSL.Designer.cs">
       <DependentUpon>FormHSL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LuongHSL\FormLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LuongHSL\FormLuong.Designer.cs">
+      <DependentUpon>FormLuong.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -172,11 +189,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLNVDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QLNVHeSoLuong.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLNVHeSoLuong.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLNVLuong.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLNVLuong.xsd</DependentUpon>
+    </Compile>
     <Compile Include="testform\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="testform\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Thongke\FormThongke.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thongke\FormThongke.Designer.cs">
+      <DependentUpon>FormThongke.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CongTac\FormCongTac.resx">
       <DependentUpon>FormCongTac.cs</DependentUpon>
@@ -202,8 +235,14 @@
     <EmbeddedResource Include="ForrmNV\FormQLNV.resx">
       <DependentUpon>FormQLNV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Hotro\Form1Hotro.resx">
+      <DependentUpon>Form1Hotro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LuongHSL\FormHSL.resx">
       <DependentUpon>FormHSL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LuongHSL\FormLuong.resx">
+      <DependentUpon>FormLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -218,12 +257,26 @@
     <EmbeddedResource Include="testform\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Thongke\FormThongke.resx">
+      <DependentUpon>FormThongke.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="ConnectSql\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="ConnectSql\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="DataChucVu.xsc">
+      <DependentUpon>DataChucVu.xsd</DependentUpon>
+    </None>
+    <None Include="DataChucVu.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataChucVu.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataChucVu.xss">
+      <DependentUpon>DataChucVu.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -283,6 +336,28 @@
     </None>
     <None Include="QLNVDataSet3.xss">
       <DependentUpon>QLNVDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QLNVHeSoLuong.xsc">
+      <DependentUpon>QLNVHeSoLuong.xsd</DependentUpon>
+    </None>
+    <None Include="QLNVHeSoLuong.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLNVHeSoLuong.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLNVHeSoLuong.xss">
+      <DependentUpon>QLNVHeSoLuong.xsd</DependentUpon>
+    </None>
+    <None Include="QLNVLuong.xsc">
+      <DependentUpon>QLNVLuong.xsd</DependentUpon>
+    </None>
+    <None Include="QLNVLuong.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLNVLuong.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLNVLuong.xss">
+      <DependentUpon>QLNVLuong.xsd</DependentUpon>
     </None>
     <None Include="Resources\pngwing.com %283%29.png" />
   </ItemGroup>

@@ -32,7 +32,7 @@ namespace QLNSMay10.FormAccount
             string newPassword = txtNewPassword.Text;
             string rePassword = txtRePassword.Text;
             System.Console.WriteLine("user" + JsonConvert.SerializeObject( session.userLogin));
-            var user = db.NguoiDungs.SingleOrDefault(A => A.MaNguoiDung == session.userLogin.MaNguoiDung);
+            var user = db.NguoiDung.SingleOrDefault(A => A.MaNguoiDung == session.userLogin.MaNguoiDung);
             if(user != null)
             {
                 if (rePassword != newPassword)
@@ -51,6 +51,11 @@ namespace QLNSMay10.FormAccount
                 MessageBox.Show("Some text", "Some title",
                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FormChangePassword_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

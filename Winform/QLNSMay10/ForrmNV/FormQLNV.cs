@@ -29,6 +29,8 @@ namespace QLNSMay10.ForrmNV
 
         private void FormQLNV_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLNVDataSet11.NhanVien' table. You can move, or remove it, as needed.
+            this.nhanVienTableAdapter.Fill(this.qLNVDataSet11.NhanVien);
             // TODO: This line of code loads data into the 'qLNVDataSet1.ChucVu' table. You can move, or remove it, as needed.
 
 

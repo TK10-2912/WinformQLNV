@@ -40,7 +40,6 @@
             this.qLNVDataSet3 = new QLNSMay10.QLNVDataSet3();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.chucVuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.chucVuTableAdapter = new QLNSMay10.QLNVDataSet3TableAdapters.ChucVuTableAdapter();
             this.maChucVuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenChucVuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet3)).BeginInit();
@@ -154,7 +153,6 @@
             // 
             // chucVuTableAdapter
             // 
-            this.chucVuTableAdapter.ClearBeforeFill = true;
             // 
             // maChucVuDataGridViewTextBoxColumn
             // 
@@ -193,7 +191,7 @@
             this.Load += new System.EventHandler(this.FormChucVu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chucVuBindingSource)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.chucVuBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,6 +212,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn maChucVuDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenChucVuDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource chucVuBindingSource;
-        private QLNVDataSet3TableAdapters.ChucVuTableAdapter chucVuTableAdapter;
     }
 }

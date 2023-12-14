@@ -20,9 +20,7 @@ namespace QLNSMay10.ForrmNV
         private void FormPhongBan_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLNVDataSet2.PhongBan' table. You can move, or remove it, as needed.
-            this.phongBanTableAdapter.Fill(this.qLNVDataSet2.PhongBan);
             // TODO: This line of code loads data into the 'qLNVDataSet.NhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter.Fill(this.qLNVDataSet.NhanVien);
 
         }
     }
