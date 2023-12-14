@@ -61,9 +61,24 @@
             this.qLNVLuong = new QLNSMay10.QLNVLuong();
             this.luongTableAdapter = new QLNSMay10.QLNVLuongTableAdapters.LuongTableAdapter();
             this.cbSoNgayCong = new System.Windows.Forms.ComboBox();
+            this.qLNVDataSet5 = new QLNSMay10.QLNVDataSet5();
+            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nhanVienTableAdapter = new QLNSMay10.QLNVDataSet5TableAdapters.NhanVienTableAdapter();
+            this.qLNVDataSet6 = new QLNSMay10.QLNVDataSet6();
+            this.nhanVienBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.nhanVienTableAdapter1 = new QLNSMay10.QLNVDataSet6TableAdapters.NhanVienTableAdapter();
+            this.qLNVDataSet7 = new QLNSMay10.QLNVDataSet7();
+            this.nhanVienBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.nhanVienTableAdapter2 = new QLNSMay10.QLNVDataSet7TableAdapters.NhanVienTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.grvLuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.luongBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLNVLuong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -81,7 +96,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(73, 206);
+            this.label1.Location = new System.Drawing.Point(39, 203);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 25);
             this.label1.TabIndex = 54;
@@ -89,16 +104,20 @@
             // 
             // cbMaTinhLuong
             // 
+            this.cbMaTinhLuong.DataSource = this.nhanVienBindingSource2;
+            this.cbMaTinhLuong.DisplayMember = "MaTinhLuong";
             this.cbMaTinhLuong.FormattingEnabled = true;
-            this.cbMaTinhLuong.Location = new System.Drawing.Point(209, 207);
+            this.cbMaTinhLuong.Location = new System.Drawing.Point(175, 204);
             this.cbMaTinhLuong.Name = "cbMaTinhLuong";
             this.cbMaTinhLuong.Size = new System.Drawing.Size(139, 24);
             this.cbMaTinhLuong.TabIndex = 55;
+            this.cbMaTinhLuong.ValueMember = "MaNhanVien";
+            this.cbMaTinhLuong.SelectedIndexChanged += new System.EventHandler(this.cbMaTinhLuong_SelectedIndexChanged);
             // 
             // cbNam
             // 
             this.cbNam.FormattingEnabled = true;
-            this.cbNam.Location = new System.Drawing.Point(981, 209);
+            this.cbNam.Location = new System.Drawing.Point(831, 199);
             this.cbNam.Name = "cbNam";
             this.cbNam.Size = new System.Drawing.Size(139, 24);
             this.cbNam.TabIndex = 57;
@@ -107,7 +126,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(922, 210);
+            this.label3.Location = new System.Drawing.Point(772, 199);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 25);
             this.label3.TabIndex = 56;
@@ -116,7 +135,7 @@
             // cbThang
             // 
             this.cbThang.FormattingEnabled = true;
-            this.cbThang.Location = new System.Drawing.Point(620, 210);
+            this.cbThang.Location = new System.Drawing.Point(501, 200);
             this.cbThang.Name = "cbThang";
             this.cbThang.Size = new System.Drawing.Size(139, 24);
             this.cbThang.TabIndex = 59;
@@ -125,7 +144,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(545, 210);
+            this.label4.Location = new System.Drawing.Point(426, 200);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 25);
             this.label4.TabIndex = 58;
@@ -134,7 +153,7 @@
             // cbMaHSL
             // 
             this.cbMaHSL.FormattingEnabled = true;
-            this.cbMaHSL.Location = new System.Drawing.Point(209, 270);
+            this.cbMaHSL.Location = new System.Drawing.Point(175, 271);
             this.cbMaHSL.Name = "cbMaHSL";
             this.cbMaHSL.Size = new System.Drawing.Size(139, 24);
             this.cbMaHSL.TabIndex = 61;
@@ -143,7 +162,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(55, 270);
+            this.label5.Location = new System.Drawing.Point(16, 269);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(153, 25);
             this.label5.TabIndex = 60;
@@ -153,7 +172,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(481, 271);
+            this.label6.Location = new System.Drawing.Point(362, 271);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(133, 25);
             this.label6.TabIndex = 62;
@@ -163,7 +182,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(833, 270);
+            this.label7.Location = new System.Drawing.Point(694, 267);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(142, 25);
             this.label7.TabIndex = 63;
@@ -172,7 +191,7 @@
             // txtSoNgayLamThem
             // 
             this.txtSoNgayLamThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoNgayLamThem.Location = new System.Drawing.Point(981, 273);
+            this.txtSoNgayLamThem.Location = new System.Drawing.Point(831, 269);
             this.txtSoNgayLamThem.Name = "txtSoNgayLamThem";
             this.txtSoNgayLamThem.Size = new System.Drawing.Size(139, 24);
             this.txtSoNgayLamThem.TabIndex = 65;
@@ -230,11 +249,11 @@
             this.delete});
             this.grvLuong.DataSource = this.luongBindingSource;
             this.grvLuong.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grvLuong.Location = new System.Drawing.Point(0, 447);
+            this.grvLuong.Location = new System.Drawing.Point(0, 425);
             this.grvLuong.Name = "grvLuong";
             this.grvLuong.RowHeadersWidth = 51;
             this.grvLuong.RowTemplate.Height = 24;
-            this.grvLuong.Size = new System.Drawing.Size(1149, 150);
+            this.grvLuong.Size = new System.Drawing.Size(1022, 150);
             this.grvLuong.TabIndex = 69;
             // 
             // maLuongDataGridViewTextBoxColumn
@@ -354,17 +373,59 @@
             // cbSoNgayCong
             // 
             this.cbSoNgayCong.FormattingEnabled = true;
-            this.cbSoNgayCong.Location = new System.Drawing.Point(620, 275);
+            this.cbSoNgayCong.Location = new System.Drawing.Point(501, 275);
             this.cbSoNgayCong.Name = "cbSoNgayCong";
             this.cbSoNgayCong.Size = new System.Drawing.Size(139, 24);
             this.cbSoNgayCong.TabIndex = 70;
+            // 
+            // qLNVDataSet5
+            // 
+            this.qLNVDataSet5.DataSetName = "QLNVDataSet5";
+            this.qLNVDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nhanVienBindingSource
+            // 
+            this.nhanVienBindingSource.DataMember = "NhanVien";
+            this.nhanVienBindingSource.DataSource = this.qLNVDataSet5;
+            // 
+            // nhanVienTableAdapter
+            // 
+            this.nhanVienTableAdapter.ClearBeforeFill = true;
+            // 
+            // qLNVDataSet6
+            // 
+            this.qLNVDataSet6.DataSetName = "QLNVDataSet6";
+            this.qLNVDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nhanVienBindingSource1
+            // 
+            this.nhanVienBindingSource1.DataMember = "NhanVien";
+            this.nhanVienBindingSource1.DataSource = this.qLNVDataSet6;
+            // 
+            // nhanVienTableAdapter1
+            // 
+            this.nhanVienTableAdapter1.ClearBeforeFill = true;
+            // 
+            // qLNVDataSet7
+            // 
+            this.qLNVDataSet7.DataSetName = "QLNVDataSet7";
+            this.qLNVDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nhanVienBindingSource2
+            // 
+            this.nhanVienBindingSource2.DataMember = "NhanVien";
+            this.nhanVienBindingSource2.DataSource = this.qLNVDataSet7;
+            // 
+            // nhanVienTableAdapter2
+            // 
+            this.nhanVienTableAdapter2.ClearBeforeFill = true;
             // 
             // FormLuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1149, 597);
+            this.ClientSize = new System.Drawing.Size(1022, 575);
             this.Controls.Add(this.cbSoNgayCong);
             this.Controls.Add(this.grvLuong);
             this.Controls.Add(this.button2);
@@ -388,6 +449,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvLuong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.luongBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLNVLuong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,5 +494,14 @@
         private System.Windows.Forms.DataGridViewButtonColumn edit;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
         private System.Windows.Forms.ComboBox cbSoNgayCong;
+        private QLNVDataSet5 qLNVDataSet5;
+        private System.Windows.Forms.BindingSource nhanVienBindingSource;
+        private QLNVDataSet5TableAdapters.NhanVienTableAdapter nhanVienTableAdapter;
+        private QLNVDataSet6 qLNVDataSet6;
+        private System.Windows.Forms.BindingSource nhanVienBindingSource1;
+        private QLNVDataSet6TableAdapters.NhanVienTableAdapter nhanVienTableAdapter1;
+        private QLNVDataSet7 qLNVDataSet7;
+        private System.Windows.Forms.BindingSource nhanVienBindingSource2;
+        private QLNVDataSet7TableAdapters.NhanVienTableAdapter nhanVienTableAdapter2;
     }
 }

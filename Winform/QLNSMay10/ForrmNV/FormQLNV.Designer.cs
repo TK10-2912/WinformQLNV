@@ -48,29 +48,27 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.chucVuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLNVDataSet1 = new QLNSMay10.QLNVDataSet1();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.qLNVDataSet11 = new QLNSMay10.QLNVDataSet1();
-            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nhanVienTableAdapter = new QLNSMay10.QLNVDataSet1TableAdapters.NhanVienTableAdapter();
-            this.AU_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qLNVDataSet8 = new QLNSMay10.QLNVDataSet8();
+            this.nhanVienBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.nhanVienTableAdapter1 = new QLNSMay10.QLNVDataSet8TableAdapters.NhanVienTableAdapter();
+            this.exportData = new System.Windows.Forms.Button();
             this.Hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QueQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaPhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaHSL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.print = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chucVuBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -263,26 +261,17 @@
             // 
             this.chucVuBindingSource.DataMember = "ChucVu";
             // 
-            // qLNVDataSet1
-            // 
-            this.qLNVDataSet1.DataSetName = "QLNVDataSet1";
-            this.qLNVDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.AU_ID,
             this.Hoten,
             this.GioiTinh,
             this.NgaySinh,
             this.QueQuan,
-            this.SoDienThoai,
-            this.MaPhongBan,
-            this.MaChucVu,
-            this.MaHSL});
-            this.dataGridView1.DataSource = this.nhanVienBindingSource;
+            this.SoDienThoai});
+            this.dataGridView1.DataSource = this.nhanVienBindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(0, 425);
             this.dataGridView1.Name = "dataGridView1";
@@ -290,6 +279,10 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1022, 150);
             this.dataGridView1.TabIndex = 19;
+            // 
+            // nhanVienBindingSource
+            // 
+            this.nhanVienBindingSource.DataMember = "NhanVien";
             // 
             // textBox5
             // 
@@ -330,27 +323,29 @@
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // qLNVDataSet11
+            // qLNVDataSet8
             // 
-            this.qLNVDataSet11.DataSetName = "QLNVDataSet1";
-            this.qLNVDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.qLNVDataSet8.DataSetName = "QLNVDataSet8";
+            this.qLNVDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // nhanVienBindingSource
+            // nhanVienBindingSource1
             // 
-            this.nhanVienBindingSource.DataMember = "NhanVien";
-            this.nhanVienBindingSource.DataSource = this.qLNVDataSet11;
+            this.nhanVienBindingSource1.DataMember = "NhanVien";
+            this.nhanVienBindingSource1.DataSource = this.qLNVDataSet8;
             // 
-            // nhanVienTableAdapter
+            // nhanVienTableAdapter1
             // 
-            this.nhanVienTableAdapter.ClearBeforeFill = true;
+            this.nhanVienTableAdapter1.ClearBeforeFill = true;
             // 
-            // AU_ID
+            // exportData
             // 
-            this.AU_ID.DataPropertyName = "AU_ID";
-            this.AU_ID.HeaderText = "Mã nhân viên";
-            this.AU_ID.MinimumWidth = 6;
-            this.AU_ID.Name = "AU_ID";
-            this.AU_ID.Width = 125;
+            this.exportData.Location = new System.Drawing.Point(755, 33);
+            this.exportData.Name = "exportData";
+            this.exportData.Size = new System.Drawing.Size(150, 45);
+            this.exportData.TabIndex = 24;
+            this.exportData.Text = "Export Excel";
+            this.exportData.UseVisualStyleBackColor = true;
+            this.exportData.Click += new System.EventHandler(this.exportData_Click);
             // 
             // Hoten
             // 
@@ -392,29 +387,15 @@
             this.SoDienThoai.Name = "SoDienThoai";
             this.SoDienThoai.Width = 125;
             // 
-            // MaPhongBan
+            // print
             // 
-            this.MaPhongBan.DataPropertyName = "MaPhongBan";
-            this.MaPhongBan.HeaderText = "MaPhongBan";
-            this.MaPhongBan.MinimumWidth = 6;
-            this.MaPhongBan.Name = "MaPhongBan";
-            this.MaPhongBan.Width = 125;
-            // 
-            // MaChucVu
-            // 
-            this.MaChucVu.DataPropertyName = "MaChucVu";
-            this.MaChucVu.HeaderText = "MaChucVu";
-            this.MaChucVu.MinimumWidth = 6;
-            this.MaChucVu.Name = "MaChucVu";
-            this.MaChucVu.Width = 125;
-            // 
-            // MaHSL
-            // 
-            this.MaHSL.DataPropertyName = "MaHSL";
-            this.MaHSL.HeaderText = "MaHSL";
-            this.MaHSL.MinimumWidth = 6;
-            this.MaHSL.Name = "MaHSL";
-            this.MaHSL.Width = 125;
+            this.print.Location = new System.Drawing.Point(124, 33);
+            this.print.Name = "print";
+            this.print.Size = new System.Drawing.Size(150, 45);
+            this.print.TabIndex = 25;
+            this.print.Text = "Print";
+            this.print.UseVisualStyleBackColor = true;
+            this.print.Click += new System.EventHandler(this.print_Click);
             // 
             // FormQLNV
             // 
@@ -422,6 +403,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1022, 575);
+            this.Controls.Add(this.print);
+            this.Controls.Add(this.exportData);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -451,10 +434,10 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormQLNV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chucVuBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSet8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -513,14 +496,15 @@
         private QLNVDataSet1 qLNVDataSet11;
         private System.Windows.Forms.BindingSource nhanVienBindingSource;
         private QLNVDataSet1TableAdapters.NhanVienTableAdapter nhanVienTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AU_ID;
+        private QLNVDataSet8 qLNVDataSet8;
+        private System.Windows.Forms.BindingSource nhanVienBindingSource1;
+        private QLNVDataSet8TableAdapters.NhanVienTableAdapter nhanVienTableAdapter1;
+        private System.Windows.Forms.Button exportData;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hoten;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn QueQuan;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhongBan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaChucVu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaHSL;
+        private System.Windows.Forms.Button print;
     }
 }

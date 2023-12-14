@@ -23,6 +23,12 @@ namespace QLNSMay10.LuongHSL
 
         private void FormLuong_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLNVDataSet7.NhanVien' table. You can move, or remove it, as needed.
+            this.nhanVienTableAdapter2.Fill(this.qLNVDataSet7.NhanVien);
+            // TODO: This line of code loads data into the 'qLNVDataSet6.NhanVien' table. You can move, or remove it, as needed.
+            this.nhanVienTableAdapter1.Fill(this.qLNVDataSet6.NhanVien);
+            // TODO: This line of code loads data into the 'qLNVDataSet5.NhanVien' table. You can move, or remove it, as needed.
+            this.nhanVienTableAdapter.Fill(this.qLNVDataSet5.NhanVien);
             List<int> thang = new List<int> {1,2,3,4,5,6,7,8,9,10,11,12 };
             List<int> songaycong = new List<int> {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30 };
             List<int> nam = new List<int>();
@@ -108,6 +114,11 @@ namespace QLNSMay10.LuongHSL
             //    grvHSL.DataSource = bd.DataSource;
             //    grvHSL.Refresh();
             //}
+        }
+
+        private void cbMaTinhLuong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -16,5 +16,12 @@ namespace QLNSMay10.CongTac
         {
             InitializeComponent();
         }
+
+        private void FormCongTac_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'qLNVDataSet4.ThoiGianCongTac' table. You can move, or remove it, as needed.
+            this.thoiGianCongTacTableAdapter.Fill(this.qLNVDataSet4.ThoiGianCongTac);
+
+        }
     }
 }
