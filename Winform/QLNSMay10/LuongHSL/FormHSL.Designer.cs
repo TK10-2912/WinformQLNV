@@ -111,6 +111,8 @@
             // 
             // grvHSL
             // 
+            this.grvHSL.AllowUserToAddRows = false;
+            this.grvHSL.AllowUserToDeleteRows = false;
             this.grvHSL.AutoGenerateColumns = false;
             this.grvHSL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvHSL.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -124,6 +126,7 @@
             this.grvHSL.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grvHSL.Location = new System.Drawing.Point(0, 425);
             this.grvHSL.Name = "grvHSL";
+            this.grvHSL.ReadOnly = true;
             this.grvHSL.RowHeadersWidth = 51;
             this.grvHSL.RowTemplate.Height = 24;
             this.grvHSL.Size = new System.Drawing.Size(1022, 150);
@@ -148,6 +151,7 @@
             this.tenHSLDataGridViewTextBoxColumn.HeaderText = "Hệ số lương";
             this.tenHSLDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tenHSLDataGridViewTextBoxColumn.Name = "tenHSLDataGridViewTextBoxColumn";
+            this.tenHSLDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // LuongThang
             // 
@@ -156,6 +160,7 @@
             this.LuongThang.HeaderText = "Lương tháng";
             this.LuongThang.MinimumWidth = 6;
             this.LuongThang.Name = "LuongThang";
+            this.LuongThang.ReadOnly = true;
             // 
             // LuongPhuCap
             // 
@@ -164,13 +169,16 @@
             this.LuongPhuCap.HeaderText = "Lương phụ cấp";
             this.LuongPhuCap.MinimumWidth = 6;
             this.LuongPhuCap.Name = "LuongPhuCap";
+            this.LuongPhuCap.ReadOnly = true;
             // 
             // edit
             // 
             this.edit.HeaderText = "";
             this.edit.MinimumWidth = 6;
             this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
             this.edit.Text = "Chỉnh sửa";
+            this.edit.ToolTipText = "CHỉnh sửa";
             this.edit.UseColumnTextForButtonValue = true;
             this.edit.Width = 125;
             // 
@@ -179,8 +187,8 @@
             this.delete.HeaderText = "";
             this.delete.MinimumWidth = 6;
             this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
             this.delete.Text = "Xóa";
-            this.delete.UseColumnTextForButtonValue = true;
             this.delete.Width = 125;
             // 
             // heSoLuongBindingSource

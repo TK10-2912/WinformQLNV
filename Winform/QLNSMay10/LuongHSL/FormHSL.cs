@@ -46,7 +46,7 @@ namespace QLNSMay10.LuongHSL
         private void LoadDataIntoDataGridView()
         {
             // Thực hiện tải dữ liệu thực tế vào DataGridView ở đây
-            bd.DataSource = qlnv.HeSoLuong.ToList();
+            bd.DataSource = qlnv.HeSoLuongs.ToList();
             grvHSL.DataSource = bd.DataSource;
         }
         private void button2_Click(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace QLNSMay10.LuongHSL
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var hsl = qlnv.HeSoLuong.SingleOrDefault(item => item.MaHSL == checkId);
+            var hsl = qlnv.HeSoLuongs.SingleOrDefault(item => item.MaHSL == checkId);
             if (txtHeSoLuong.Text == "" || cbLuong.Text == "" || cbPhuCap.Text == "")
             {
                 MessageBox.Show("Không để trống trường nào!", "Thông báo",
@@ -72,7 +72,7 @@ namespace QLNSMay10.LuongHSL
                 qlnv.SaveChanges();
                 MessageBox.Show("Chỉnh sửa thành công! ", "Thông báo",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                bd.DataSource = qlnv.HeSoLuong.ToList();
+                bd.DataSource = qlnv.HeSoLuongs.ToList();
                 grvHSL.DataSource = bd.DataSource;
                 grvHSL.Refresh();
             }
@@ -83,7 +83,7 @@ namespace QLNSMay10.LuongHSL
             string tenHsl = txtHeSoLuong.Text;
             float luong = float.Parse(cbLuong.Text);
             float phucap = float.Parse(cbPhuCap.Text);
-            var list = qlnv.HeSoLuong.ToList();
+            var list = qlnv.HeSoLuongs.ToList();
             if (txtHeSoLuong.Text == "" || cbPhuCap.Text == "" || cbPhuCap.Text == "")
             {
 
@@ -96,13 +96,14 @@ namespace QLNSMay10.LuongHSL
                 hsl.TenHSL = tenHsl;
                 hsl.LuongThang = luong;
                 hsl.LuongPhuCap = phucap;
-                qlnv.HeSoLuong.Add(hsl);
+                qlnv.HeSoLuongs.Add(hsl);
                 qlnv.SaveChanges();
                 MessageBox.Show("Thêm mới thành công! ", "Thông báo",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                bd.DataSource = qlnv.HeSoLuong.ToList();
+                bd.DataSource = qlnv.HeSoLuongs.ToList();
                 grvHSL.DataSource = bd.DataSource;
                 grvHSL.Refresh();
+                this.button2_Click(null, EventArgs.Empty);
             }
         }
 
@@ -130,15 +131,15 @@ namespace QLNSMay10.LuongHSL
                     {
                         checkId = Int32.Parse(grvHSL.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                        var hesl = qlnv.HeSoLuong.SingleOrDefault(item => item.MaHSL == checkId);
+                        var hesl = qlnv.HeSoLuongs.SingleOrDefault(item => item.MaHSL == checkId);
                         Console.WriteLine("aaaa " + JsonConvert.SerializeObject(hesl, Formatting.Indented));
                         if (hesl != null)
                         {
                             MessageBox.Show("Xóa thành công! ", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            qlnv.HeSoLuong.Remove(hesl);
+                            qlnv.HeSoLuongs.Remove(hesl);
                             qlnv.SaveChanges();
-                            bd.DataSource = qlnv.HeSoLuong.ToList();
+                            bd.DataSource = qlnv.HeSoLuongs.ToList();
                             grvHSL.DataSource = bd.DataSource;
                             grvHSL.Refresh();
                         }

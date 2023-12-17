@@ -4,21 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="eea66d3c116246c68bd6a210822fb01b" Name="Diagram1">
-        <EntityTypeShape EntityType="QLNVModel.Employee" Width="1.5" PointX="0.75" PointY="8.375" />
-        <EntityTypeShape EntityType="QLNVModel.PrintInfo" Width="1.5" PointX="3" PointY="7.875" />
-        <EntityTypeShape EntityType="QLNVModel.Report" Width="1.5" PointX="3" PointY="1.625" />
-        <EntityTypeShape EntityType="QLNVModel.SalaryPayment" Width="1.5" PointX="3" PointY="16.25" />
-        <EntityTypeShape EntityType="QLNVModel.SalaryPolicy" Width="1.5" PointX="3" PointY="13.375" />
-        <EntityTypeShape EntityType="QLNVModel.SearchInfo" Width="1.5" PointX="3" PointY="10.625" />
-        <EntityTypeShape EntityType="QLNVModel.User" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="QLNVModel.WorkHistory" Width="1.5" PointX="3" PointY="5" />
-        <AssociationConnector Association="QLNVModel.FK__PrintInfo__Emplo__47DBAE45" />
-        <AssociationConnector Association="QLNVModel.FK__Report__Employee__44FF419A" />
-        <AssociationConnector Association="QLNVModel.FK__SalaryPay__Emplo__3F466844" />
-        <AssociationConnector Association="QLNVModel.FK__SalaryPol__Emplo__398D8EEE" />
-        <AssociationConnector Association="QLNVModel.FK__SearchInf__Emplo__4222D4EF" />
-        <AssociationConnector Association="QLNVModel.FK__WorkHisto__Emplo__3C69FB99" />
+      <Diagram DiagramId="3de93415f07142a192c7dda3fbd39cae" Name="Diagram1">
+        <EntityTypeShape EntityType="QLNVModel.ChucVu" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNVModel.HeSoLuong" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNVModel.Luong" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNVModel.NguoiDung" Width="1.5" PointX="2.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNVModel.NhanVien" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNVModel.PhongBan" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNVModel.sysdiagram" Width="1.5" PointX="4.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNVModel.ThoiGianCongTac" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="QLNVModel.FK_NhanVien_ChucVu" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNVModel.FK_ThoiGianCongTac_ChucVu" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNVModel.FK_NhanVien_HeSoLuong" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNVModel.FK_Luong_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNVModel.FK_NhanVien_PhongBan" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNVModel.FK_ThoiGianCongTac_NhanVien" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

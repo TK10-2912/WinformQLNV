@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace QLNSMay10.Thongke
 {
-    public partial class FormThongke : Form
+    public partial class FormThongKeQuy : Form
     {
-        public FormThongke()
+        public FormThongKeQuy()
         {
             InitializeComponent();
         }
+
+        
     }
 }

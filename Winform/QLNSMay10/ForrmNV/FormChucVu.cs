@@ -24,6 +24,7 @@ namespace QLNSMay10.ForrmNV
 
         private void FormChucVu_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLNVChucVu.ChucVu' table. You can move, or remove it, as needed.
             this.chucVuTableAdapter.Fill(this.qLNVChucVu.ChucVu);
         }
 

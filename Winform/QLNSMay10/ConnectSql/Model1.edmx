@@ -5,482 +5,516 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="QLNVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Employees">
+        <EntityType Name="ChucVu">
           <Key>
-            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="MaChucVu" />
           </Key>
-          <Property Name="EmployeeID" Type="int" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="50" />
-          <Property Name="LastName" Type="varchar" MaxLength="50" />
-          <Property Name="Address" Type="varchar" MaxLength="255" />
-          <Property Name="PhoneNumber" Type="varchar" MaxLength="15" />
-          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="MaChucVu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenChucVu" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="PrintInfo">
+        <EntityType Name="HeSoLuong">
           <Key>
-            <PropertyRef Name="PrintID" />
+            <PropertyRef Name="MaHSL" />
           </Key>
-          <Property Name="PrintID" Type="int" Nullable="false" />
-          <Property Name="Content" Type="text" />
-          <Property Name="Format" Type="varchar" MaxLength="50" />
-          <Property Name="EmployeeID" Type="int" />
+          <Property Name="MaHSL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenHSL" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LuongThang" Type="float" Nullable="false" />
+          <Property Name="LuongPhuCap" Type="float" Nullable="false" />
         </EntityType>
-        <EntityType Name="Report">
+        <EntityType Name="Luong">
           <Key>
-            <PropertyRef Name="StatID" />
+            <PropertyRef Name="MaLuong" />
           </Key>
-          <Property Name="StatID" Type="int" Nullable="false" />
-          <Property Name="Month" Type="int" />
-          <Property Name="Quarter" Type="int" />
-          <Property Name="Year" Type="int" />
-          <Property Name="EmployeeCount" Type="int" />
-          <Property Name="TotalSalary" Type="decimal" Precision="15" Scale="2" />
-          <Property Name="EmployeeID" Type="int" />
+          <Property Name="MaLuong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaNhanVien" Type="int" Nullable="false" />
+          <Property Name="Thang" Type="int" Nullable="false" />
+          <Property Name="Nam" Type="int" Nullable="false" />
+          <Property Name="SoNgayCong" Type="int" Nullable="false" />
+          <Property Name="SoNgayLamThem" Type="int" Nullable="false" />
+          <Property Name="Phat" Type="float" Nullable="false" />
+          <Property Name="LuongThucLinh" Type="float" Nullable="false" />
         </EntityType>
-        <EntityType Name="SalaryPayments">
+        <EntityType Name="NguoiDung">
           <Key>
-            <PropertyRef Name="PaymentID" />
+            <PropertyRef Name="MaNguoiDung" />
           </Key>
-          <Property Name="PaymentID" Type="int" Nullable="false" />
-          <Property Name="EmployeeID" Type="int" />
-          <Property Name="PaymentDate" Type="date" />
-          <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="PaymentMethod" Type="varchar" MaxLength="50" />
+          <Property Name="MaNguoiDung" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoVaTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="NgaySinh" Type="datetime" />
+          <Property Name="NgayTao" Type="datetime" Nullable="false" />
+          <Property Name="NgayCapNhat" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="SalaryPolicies">
+        <EntityType Name="NhanVien">
           <Key>
-            <PropertyRef Name="PolicyID" />
+            <PropertyRef Name="MaNhanVien" />
           </Key>
-          <Property Name="PolicyID" Type="int" Nullable="false" />
-          <Property Name="BasicSalary" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Bonus" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="PolicyDescription" Type="varchar" MaxLength="255" />
-          <Property Name="EmployeeID" Type="int" />
+          <Property Name="MaNhanVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hoten" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="NgaySinh" Type="datetime" />
+          <Property Name="QueQuan" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="20" />
+          <Property Name="MaPhongBan" Type="int" Nullable="false" />
+          <Property Name="MaChucVu" Type="int" Nullable="false" />
+          <Property Name="MaHSL" Type="int" Nullable="false" />
+          <Property Name="MaTinhLuong" Type="nvarchar" MaxLength="2555" />
         </EntityType>
-        <EntityType Name="SearchInfo">
+        <EntityType Name="PhongBan">
           <Key>
-            <PropertyRef Name="SearchID" />
+            <PropertyRef Name="MaPhongBan" />
           </Key>
-          <Property Name="SearchID" Type="int" Nullable="false" />
-          <Property Name="Keyword" Type="varchar" MaxLength="50" />
-          <Property Name="Result" Type="text" />
-          <Property Name="EmployeeID" Type="int" />
+          <Property Name="MaPhongBan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenPhongBan" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="20" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="User">
+        <EntityType Name="sysdiagrams">
           <Key>
-            <PropertyRef Name="UserId" />
+            <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="nchar" MaxLength="20" />
-          <Property Name="PWord" Type="nchar" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="WorkHistory">
+        <EntityType Name="ThoiGianCongTac">
           <Key>
-            <PropertyRef Name="HistoryID" />
+            <PropertyRef Name="MaCongTac" />
           </Key>
-          <Property Name="HistoryID" Type="int" Nullable="false" />
-          <Property Name="EmployeeID" Type="int" />
-          <Property Name="StartDate" Type="date" />
-          <Property Name="EndDate" Type="date" />
-          <Property Name="JobDescription" Type="text" />
+          <Property Name="MaCongTac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaNhanVien" Type="int" Nullable="false" />
+          <Property Name="MaChucVu" Type="int" Nullable="false" />
+          <Property Name="NgayNhanChuc" Type="datetime" Nullable="false" />
         </EntityType>
-        <Association Name="FK__PrintInfo__Emplo__47DBAE45">
-          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
-          <End Role="PrintInfo" Type="Self.PrintInfo" Multiplicity="*" />
+        <Association Name="FK_Luong_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="Luong" Type="Self.Luong" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employees">
-              <PropertyRef Name="EmployeeID" />
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNhanVien" />
             </Principal>
-            <Dependent Role="PrintInfo">
-              <PropertyRef Name="EmployeeID" />
+            <Dependent Role="Luong">
+              <PropertyRef Name="MaNhanVien" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Report__Employee__44FF419A">
-          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
-          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+        <Association Name="FK_NhanVien_ChucVu">
+          <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employees">
-              <PropertyRef Name="EmployeeID" />
+            <Principal Role="ChucVu">
+              <PropertyRef Name="MaChucVu" />
             </Principal>
-            <Dependent Role="Report">
-              <PropertyRef Name="EmployeeID" />
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="MaChucVu" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SalaryPay__Emplo__3F466844">
-          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
-          <End Role="SalaryPayments" Type="Self.SalaryPayments" Multiplicity="*" />
+        <Association Name="FK_NhanVien_HeSoLuong">
+          <End Role="HeSoLuong" Type="Self.HeSoLuong" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employees">
-              <PropertyRef Name="EmployeeID" />
+            <Principal Role="HeSoLuong">
+              <PropertyRef Name="MaHSL" />
             </Principal>
-            <Dependent Role="SalaryPayments">
-              <PropertyRef Name="EmployeeID" />
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="MaHSL" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SalaryPol__Emplo__398D8EEE">
-          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
-          <End Role="SalaryPolicies" Type="Self.SalaryPolicies" Multiplicity="*" />
+        <Association Name="FK_NhanVien_PhongBan">
+          <End Role="PhongBan" Type="Self.PhongBan" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employees">
-              <PropertyRef Name="EmployeeID" />
+            <Principal Role="PhongBan">
+              <PropertyRef Name="MaPhongBan" />
             </Principal>
-            <Dependent Role="SalaryPolicies">
-              <PropertyRef Name="EmployeeID" />
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="MaPhongBan" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SearchInf__Emplo__4222D4EF">
-          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
-          <End Role="SearchInfo" Type="Self.SearchInfo" Multiplicity="*" />
+        <Association Name="FK_ThoiGianCongTac_ChucVu">
+          <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ThoiGianCongTac" Type="Self.ThoiGianCongTac" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employees">
-              <PropertyRef Name="EmployeeID" />
+            <Principal Role="ChucVu">
+              <PropertyRef Name="MaChucVu" />
             </Principal>
-            <Dependent Role="SearchInfo">
-              <PropertyRef Name="EmployeeID" />
+            <Dependent Role="ThoiGianCongTac">
+              <PropertyRef Name="MaChucVu" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__WorkHisto__Emplo__3C69FB99">
-          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
-          <End Role="WorkHistory" Type="Self.WorkHistory" Multiplicity="*" />
+        <Association Name="FK_ThoiGianCongTac_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="ThoiGianCongTac" Type="Self.ThoiGianCongTac" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employees">
-              <PropertyRef Name="EmployeeID" />
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNhanVien" />
             </Principal>
-            <Dependent Role="WorkHistory">
-              <PropertyRef Name="EmployeeID" />
+            <Dependent Role="ThoiGianCongTac">
+              <PropertyRef Name="MaNhanVien" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QLNVModelStoreContainer">
-          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PrintInfo" EntityType="Self.PrintInfo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SalaryPayments" EntityType="Self.SalaryPayments" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SalaryPolicies" EntityType="Self.SalaryPolicies" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SearchInfo" EntityType="Self.SearchInfo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="WorkHistory" EntityType="Self.WorkHistory" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__PrintInfo__Emplo__47DBAE45" Association="Self.FK__PrintInfo__Emplo__47DBAE45">
-            <End Role="Employees" EntitySet="Employees" />
-            <End Role="PrintInfo" EntitySet="PrintInfo" />
+          <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HeSoLuong" EntityType="Self.HeSoLuong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Luong" EntityType="Self.Luong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhongBan" EntityType="Self.PhongBan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThoiGianCongTac" EntityType="Self.ThoiGianCongTac" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Luong_NhanVien" Association="Self.FK_Luong_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="Luong" EntitySet="Luong" />
           </AssociationSet>
-          <AssociationSet Name="FK__Report__Employee__44FF419A" Association="Self.FK__Report__Employee__44FF419A">
-            <End Role="Employees" EntitySet="Employees" />
-            <End Role="Report" EntitySet="Report" />
+          <AssociationSet Name="FK_NhanVien_ChucVu" Association="Self.FK_NhanVien_ChucVu">
+            <End Role="ChucVu" EntitySet="ChucVu" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
           </AssociationSet>
-          <AssociationSet Name="FK__SalaryPay__Emplo__3F466844" Association="Self.FK__SalaryPay__Emplo__3F466844">
-            <End Role="Employees" EntitySet="Employees" />
-            <End Role="SalaryPayments" EntitySet="SalaryPayments" />
+          <AssociationSet Name="FK_NhanVien_HeSoLuong" Association="Self.FK_NhanVien_HeSoLuong">
+            <End Role="HeSoLuong" EntitySet="HeSoLuong" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
           </AssociationSet>
-          <AssociationSet Name="FK__SalaryPol__Emplo__398D8EEE" Association="Self.FK__SalaryPol__Emplo__398D8EEE">
-            <End Role="Employees" EntitySet="Employees" />
-            <End Role="SalaryPolicies" EntitySet="SalaryPolicies" />
+          <AssociationSet Name="FK_NhanVien_PhongBan" Association="Self.FK_NhanVien_PhongBan">
+            <End Role="PhongBan" EntitySet="PhongBan" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
           </AssociationSet>
-          <AssociationSet Name="FK__SearchInf__Emplo__4222D4EF" Association="Self.FK__SearchInf__Emplo__4222D4EF">
-            <End Role="Employees" EntitySet="Employees" />
-            <End Role="SearchInfo" EntitySet="SearchInfo" />
+          <AssociationSet Name="FK_ThoiGianCongTac_ChucVu" Association="Self.FK_ThoiGianCongTac_ChucVu">
+            <End Role="ChucVu" EntitySet="ChucVu" />
+            <End Role="ThoiGianCongTac" EntitySet="ThoiGianCongTac" />
           </AssociationSet>
-          <AssociationSet Name="FK__WorkHisto__Emplo__3C69FB99" Association="Self.FK__WorkHisto__Emplo__3C69FB99">
-            <End Role="Employees" EntitySet="Employees" />
-            <End Role="WorkHistory" EntitySet="WorkHistory" />
+          <AssociationSet Name="FK_ThoiGianCongTac_NhanVien" Association="Self.FK_ThoiGianCongTac_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="ThoiGianCongTac" EntitySet="ThoiGianCongTac" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLNVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ChucVu">
+          <Key>
+            <PropertyRef Name="MaChucVu" />
+          </Key>
+          <Property Name="MaChucVu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_ChucVu" FromRole="ChucVu" ToRole="NhanVien" />
+          <NavigationProperty Name="ThoiGianCongTacs" Relationship="Self.FK_ThoiGianCongTac_ChucVu" FromRole="ChucVu" ToRole="ThoiGianCongTac" />
+        </EntityType>
+        <EntityType Name="HeSoLuong">
+          <Key>
+            <PropertyRef Name="MaHSL" />
+          </Key>
+          <Property Name="MaHSL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenHSL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LuongThang" Type="Double" Nullable="false" />
+          <Property Name="LuongPhuCap" Type="Double" Nullable="false" />
+          <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_HeSoLuong" FromRole="HeSoLuong" ToRole="NhanVien" />
+        </EntityType>
+        <EntityType Name="Luong">
+          <Key>
+            <PropertyRef Name="MaLuong" />
+          </Key>
+          <Property Name="MaLuong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
+          <Property Name="Thang" Type="Int32" Nullable="false" />
+          <Property Name="Nam" Type="Int32" Nullable="false" />
+          <Property Name="SoNgayCong" Type="Int32" Nullable="false" />
+          <Property Name="SoNgayLamThem" Type="Int32" Nullable="false" />
+          <Property Name="Phat" Type="Double" Nullable="false" />
+          <Property Name="LuongThucLinh" Type="Double" Nullable="false" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_Luong_NhanVien" FromRole="Luong" ToRole="NhanVien" />
+        </EntityType>
+        <EntityType Name="NguoiDung">
+          <Key>
+            <PropertyRef Name="MaNguoiDung" />
+          </Key>
+          <Property Name="MaNguoiDung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoVaTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="3" />
+          <Property Name="NgayTao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NgayCapNhat" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="MaNhanVien" />
+          </Key>
+          <Property Name="MaNhanVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="3" />
+          <Property Name="QueQuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MaPhongBan" Type="Int32" Nullable="false" />
+          <Property Name="MaChucVu" Type="Int32" Nullable="false" />
+          <Property Name="MaHSL" Type="Int32" Nullable="false" />
+          <Property Name="MaTinhLuong" Type="String" MaxLength="2555" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChucVu" Relationship="Self.FK_NhanVien_ChucVu" FromRole="NhanVien" ToRole="ChucVu" />
+          <NavigationProperty Name="HeSoLuong" Relationship="Self.FK_NhanVien_HeSoLuong" FromRole="NhanVien" ToRole="HeSoLuong" />
+          <NavigationProperty Name="Luongs" Relationship="Self.FK_Luong_NhanVien" FromRole="NhanVien" ToRole="Luong" />
+          <NavigationProperty Name="PhongBan" Relationship="Self.FK_NhanVien_PhongBan" FromRole="NhanVien" ToRole="PhongBan" />
+          <NavigationProperty Name="ThoiGianCongTacs" Relationship="Self.FK_ThoiGianCongTac_NhanVien" FromRole="NhanVien" ToRole="ThoiGianCongTac" />
+        </EntityType>
+        <EntityType Name="PhongBan">
+          <Key>
+            <PropertyRef Name="MaPhongBan" />
+          </Key>
+          <Property Name="MaPhongBan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenPhongBan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_PhongBan" FromRole="PhongBan" ToRole="NhanVien" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ThoiGianCongTac">
+          <Key>
+            <PropertyRef Name="MaCongTac" />
+          </Key>
+          <Property Name="MaCongTac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
+          <Property Name="MaChucVu" Type="Int32" Nullable="false" />
+          <Property Name="NgayNhanChuc" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ChucVu" Relationship="Self.FK_ThoiGianCongTac_ChucVu" FromRole="ThoiGianCongTac" ToRole="ChucVu" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_ThoiGianCongTac_NhanVien" FromRole="ThoiGianCongTac" ToRole="NhanVien" />
+        </EntityType>
+        <Association Name="FK_NhanVien_ChucVu">
+          <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChucVu">
+              <PropertyRef Name="MaChucVu" />
+            </Principal>
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="MaChucVu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThoiGianCongTac_ChucVu">
+          <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ThoiGianCongTac" Type="Self.ThoiGianCongTac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChucVu">
+              <PropertyRef Name="MaChucVu" />
+            </Principal>
+            <Dependent Role="ThoiGianCongTac">
+              <PropertyRef Name="MaChucVu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NhanVien_HeSoLuong">
+          <End Role="HeSoLuong" Type="Self.HeSoLuong" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HeSoLuong">
+              <PropertyRef Name="MaHSL" />
+            </Principal>
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="MaHSL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Luong_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="Luong" Type="Self.Luong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNhanVien" />
+            </Principal>
+            <Dependent Role="Luong">
+              <PropertyRef Name="MaNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NhanVien_PhongBan">
+          <End Role="PhongBan" Type="Self.PhongBan" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhongBan">
+              <PropertyRef Name="MaPhongBan" />
+            </Principal>
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="MaPhongBan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThoiGianCongTac_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="ThoiGianCongTac" Type="Self.ThoiGianCongTac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNhanVien" />
+            </Principal>
+            <Dependent Role="ThoiGianCongTac">
+              <PropertyRef Name="MaNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QLNVEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Employees" EntityType="QLNVModel.Employee" />
-          <EntitySet Name="PrintInfoes" EntityType="QLNVModel.PrintInfo" />
-          <EntitySet Name="Reports" EntityType="QLNVModel.Report" />
-          <EntitySet Name="SalaryPayments" EntityType="QLNVModel.SalaryPayment" />
-          <EntitySet Name="SalaryPolicies" EntityType="QLNVModel.SalaryPolicy" />
-          <EntitySet Name="SearchInfoes" EntityType="QLNVModel.SearchInfo" />
-          <EntitySet Name="Users" EntityType="QLNVModel.User" />
-          <EntitySet Name="WorkHistories" EntityType="QLNVModel.WorkHistory" />
-          <AssociationSet Name="FK__PrintInfo__Emplo__47DBAE45" Association="QLNVModel.FK__PrintInfo__Emplo__47DBAE45">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="PrintInfo" EntitySet="PrintInfoes" />
+          <EntitySet Name="ChucVus" EntityType="Self.ChucVu" />
+          <EntitySet Name="HeSoLuongs" EntityType="Self.HeSoLuong" />
+          <EntitySet Name="Luongs" EntityType="Self.Luong" />
+          <EntitySet Name="NguoiDungs" EntityType="Self.NguoiDung" />
+          <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+          <EntitySet Name="PhongBans" EntityType="Self.PhongBan" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="ThoiGianCongTacs" EntityType="Self.ThoiGianCongTac" />
+          <AssociationSet Name="FK_NhanVien_ChucVu" Association="Self.FK_NhanVien_ChucVu">
+            <End Role="ChucVu" EntitySet="ChucVus" />
+            <End Role="NhanVien" EntitySet="NhanViens" />
           </AssociationSet>
-          <AssociationSet Name="FK__Report__Employee__44FF419A" Association="QLNVModel.FK__Report__Employee__44FF419A">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Report" EntitySet="Reports" />
+          <AssociationSet Name="FK_ThoiGianCongTac_ChucVu" Association="Self.FK_ThoiGianCongTac_ChucVu">
+            <End Role="ChucVu" EntitySet="ChucVus" />
+            <End Role="ThoiGianCongTac" EntitySet="ThoiGianCongTacs" />
           </AssociationSet>
-          <AssociationSet Name="FK__SalaryPay__Emplo__3F466844" Association="QLNVModel.FK__SalaryPay__Emplo__3F466844">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="SalaryPayment" EntitySet="SalaryPayments" />
+          <AssociationSet Name="FK_NhanVien_HeSoLuong" Association="Self.FK_NhanVien_HeSoLuong">
+            <End Role="HeSoLuong" EntitySet="HeSoLuongs" />
+            <End Role="NhanVien" EntitySet="NhanViens" />
           </AssociationSet>
-          <AssociationSet Name="FK__SalaryPol__Emplo__398D8EEE" Association="QLNVModel.FK__SalaryPol__Emplo__398D8EEE">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="SalaryPolicy" EntitySet="SalaryPolicies" />
+          <AssociationSet Name="FK_Luong_NhanVien" Association="Self.FK_Luong_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="Luong" EntitySet="Luongs" />
           </AssociationSet>
-          <AssociationSet Name="FK__SearchInf__Emplo__4222D4EF" Association="QLNVModel.FK__SearchInf__Emplo__4222D4EF">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="SearchInfo" EntitySet="SearchInfoes" />
+          <AssociationSet Name="FK_NhanVien_PhongBan" Association="Self.FK_NhanVien_PhongBan">
+            <End Role="PhongBan" EntitySet="PhongBans" />
+            <End Role="NhanVien" EntitySet="NhanViens" />
           </AssociationSet>
-          <AssociationSet Name="FK__WorkHisto__Emplo__3C69FB99" Association="QLNVModel.FK__WorkHisto__Emplo__3C69FB99">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="WorkHistory" EntitySet="WorkHistories" />
+          <AssociationSet Name="FK_ThoiGianCongTac_NhanVien" Association="Self.FK_ThoiGianCongTac_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="ThoiGianCongTac" EntitySet="ThoiGianCongTacs" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Employee">
-          <Key>
-            <PropertyRef Name="EmployeeID" />
-          </Key>
-          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PrintInfoes" Relationship="QLNVModel.FK__PrintInfo__Emplo__47DBAE45" FromRole="Employee" ToRole="PrintInfo" />
-          <NavigationProperty Name="Reports" Relationship="QLNVModel.FK__Report__Employee__44FF419A" FromRole="Employee" ToRole="Report" />
-          <NavigationProperty Name="SalaryPayments" Relationship="QLNVModel.FK__SalaryPay__Emplo__3F466844" FromRole="Employee" ToRole="SalaryPayment" />
-          <NavigationProperty Name="SalaryPolicies" Relationship="QLNVModel.FK__SalaryPol__Emplo__398D8EEE" FromRole="Employee" ToRole="SalaryPolicy" />
-          <NavigationProperty Name="SearchInfoes" Relationship="QLNVModel.FK__SearchInf__Emplo__4222D4EF" FromRole="Employee" ToRole="SearchInfo" />
-          <NavigationProperty Name="WorkHistories" Relationship="QLNVModel.FK__WorkHisto__Emplo__3C69FB99" FromRole="Employee" ToRole="WorkHistory" />
-        </EntityType>
-        <EntityType Name="PrintInfo">
-          <Key>
-            <PropertyRef Name="PrintID" />
-          </Key>
-          <Property Name="PrintID" Type="Int32" Nullable="false" />
-          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Format" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EmployeeID" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="QLNVModel.FK__PrintInfo__Emplo__47DBAE45" FromRole="PrintInfo" ToRole="Employee" />
-        </EntityType>
-        <EntityType Name="Report">
-          <Key>
-            <PropertyRef Name="StatID" />
-          </Key>
-          <Property Name="StatID" Type="Int32" Nullable="false" />
-          <Property Name="Month" Type="Int32" />
-          <Property Name="Quarter" Type="Int32" />
-          <Property Name="Year" Type="Int32" />
-          <Property Name="EmployeeCount" Type="Int32" />
-          <Property Name="TotalSalary" Type="Decimal" Precision="15" Scale="2" />
-          <Property Name="EmployeeID" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="QLNVModel.FK__Report__Employee__44FF419A" FromRole="Report" ToRole="Employee" />
-        </EntityType>
-        <EntityType Name="SalaryPayment">
-          <Key>
-            <PropertyRef Name="PaymentID" />
-          </Key>
-          <Property Name="PaymentID" Type="Int32" Nullable="false" />
-          <Property Name="EmployeeID" Type="Int32" />
-          <Property Name="PaymentDate" Type="DateTime" Precision="0" />
-          <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Employee" Relationship="QLNVModel.FK__SalaryPay__Emplo__3F466844" FromRole="SalaryPayment" ToRole="Employee" />
-        </EntityType>
-        <EntityType Name="SalaryPolicy">
-          <Key>
-            <PropertyRef Name="PolicyID" />
-          </Key>
-          <Property Name="PolicyID" Type="Int32" Nullable="false" />
-          <Property Name="BasicSalary" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="Bonus" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="PolicyDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="EmployeeID" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="QLNVModel.FK__SalaryPol__Emplo__398D8EEE" FromRole="SalaryPolicy" ToRole="Employee" />
-        </EntityType>
-        <EntityType Name="SearchInfo">
-          <Key>
-            <PropertyRef Name="SearchID" />
-          </Key>
-          <Property Name="SearchID" Type="Int32" Nullable="false" />
-          <Property Name="Keyword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="EmployeeID" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="QLNVModel.FK__SearchInf__Emplo__4222D4EF" FromRole="SearchInfo" ToRole="Employee" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="PWord" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-        </EntityType>
-        <EntityType Name="WorkHistory">
-          <Key>
-            <PropertyRef Name="HistoryID" />
-          </Key>
-          <Property Name="HistoryID" Type="Int32" Nullable="false" />
-          <Property Name="EmployeeID" Type="Int32" />
-          <Property Name="StartDate" Type="DateTime" Precision="0" />
-          <Property Name="EndDate" Type="DateTime" Precision="0" />
-          <Property Name="JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Employee" Relationship="QLNVModel.FK__WorkHisto__Emplo__3C69FB99" FromRole="WorkHistory" ToRole="Employee" />
-        </EntityType>
-        <Association Name="FK__PrintInfo__Emplo__47DBAE45">
-          <End Type="QLNVModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="QLNVModel.PrintInfo" Role="PrintInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="PrintInfo">
-              <PropertyRef Name="EmployeeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Report__Employee__44FF419A">
-          <End Type="QLNVModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="QLNVModel.Report" Role="Report" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="Report">
-              <PropertyRef Name="EmployeeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SalaryPay__Emplo__3F466844">
-          <End Type="QLNVModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="QLNVModel.SalaryPayment" Role="SalaryPayment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="SalaryPayment">
-              <PropertyRef Name="EmployeeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SalaryPol__Emplo__398D8EEE">
-          <End Type="QLNVModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="QLNVModel.SalaryPolicy" Role="SalaryPolicy" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="SalaryPolicy">
-              <PropertyRef Name="EmployeeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SearchInf__Emplo__4222D4EF">
-          <End Type="QLNVModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="QLNVModel.SearchInfo" Role="SearchInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="SearchInfo">
-              <PropertyRef Name="EmployeeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__WorkHisto__Emplo__3C69FB99">
-          <End Type="QLNVModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="QLNVModel.WorkHistory" Role="WorkHistory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="WorkHistory">
-              <PropertyRef Name="EmployeeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QLNVModelStoreContainer" CdmEntityContainer="QLNVEntities">
-          <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="QLNVModel.Employee">
-              <MappingFragment StoreEntitySet="Employees">
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <EntitySetMapping Name="ChucVus">
+            <EntityTypeMapping TypeName="QLNVModel.ChucVu">
+              <MappingFragment StoreEntitySet="ChucVu">
+                <ScalarProperty Name="MaChucVu" ColumnName="MaChucVu" />
+                <ScalarProperty Name="TenChucVu" ColumnName="TenChucVu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PrintInfoes">
-            <EntityTypeMapping TypeName="QLNVModel.PrintInfo">
-              <MappingFragment StoreEntitySet="PrintInfo">
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-                <ScalarProperty Name="Format" ColumnName="Format" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="PrintID" ColumnName="PrintID" />
+          <EntitySetMapping Name="HeSoLuongs">
+            <EntityTypeMapping TypeName="QLNVModel.HeSoLuong">
+              <MappingFragment StoreEntitySet="HeSoLuong">
+                <ScalarProperty Name="MaHSL" ColumnName="MaHSL" />
+                <ScalarProperty Name="TenHSL" ColumnName="TenHSL" />
+                <ScalarProperty Name="LuongThang" ColumnName="LuongThang" />
+                <ScalarProperty Name="LuongPhuCap" ColumnName="LuongPhuCap" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Reports">
-            <EntityTypeMapping TypeName="QLNVModel.Report">
-              <MappingFragment StoreEntitySet="Report">
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-                <ScalarProperty Name="TotalSalary" ColumnName="TotalSalary" />
-                <ScalarProperty Name="EmployeeCount" ColumnName="EmployeeCount" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Quarter" ColumnName="Quarter" />
-                <ScalarProperty Name="Month" ColumnName="Month" />
-                <ScalarProperty Name="StatID" ColumnName="StatID" />
+          <EntitySetMapping Name="Luongs">
+            <EntityTypeMapping TypeName="QLNVModel.Luong">
+              <MappingFragment StoreEntitySet="Luong">
+                <ScalarProperty Name="MaLuong" ColumnName="MaLuong" />
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="Thang" ColumnName="Thang" />
+                <ScalarProperty Name="Nam" ColumnName="Nam" />
+                <ScalarProperty Name="SoNgayCong" ColumnName="SoNgayCong" />
+                <ScalarProperty Name="SoNgayLamThem" ColumnName="SoNgayLamThem" />
+                <ScalarProperty Name="Phat" ColumnName="Phat" />
+                <ScalarProperty Name="LuongThucLinh" ColumnName="LuongThucLinh" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SalaryPayments">
-            <EntityTypeMapping TypeName="QLNVModel.SalaryPayment">
-              <MappingFragment StoreEntitySet="SalaryPayments">
-                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <EntitySetMapping Name="NguoiDungs">
+            <EntityTypeMapping TypeName="QLNVModel.NguoiDung">
+              <MappingFragment StoreEntitySet="NguoiDung">
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+                <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SalaryPolicies">
-            <EntityTypeMapping TypeName="QLNVModel.SalaryPolicy">
-              <MappingFragment StoreEntitySet="SalaryPolicies">
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-                <ScalarProperty Name="PolicyDescription" ColumnName="PolicyDescription" />
-                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
-                <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
-                <ScalarProperty Name="PolicyID" ColumnName="PolicyID" />
+          <EntitySetMapping Name="NhanViens">
+            <EntityTypeMapping TypeName="QLNVModel.NhanVien">
+              <MappingFragment StoreEntitySet="NhanVien">
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="MaPhongBan" ColumnName="MaPhongBan" />
+                <ScalarProperty Name="MaChucVu" ColumnName="MaChucVu" />
+                <ScalarProperty Name="MaHSL" ColumnName="MaHSL" />
+                <ScalarProperty Name="MaTinhLuong" ColumnName="MaTinhLuong" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SearchInfoes">
-            <EntityTypeMapping TypeName="QLNVModel.SearchInfo">
-              <MappingFragment StoreEntitySet="SearchInfo">
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-                <ScalarProperty Name="Result" ColumnName="Result" />
-                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
-                <ScalarProperty Name="SearchID" ColumnName="SearchID" />
+          <EntitySetMapping Name="PhongBans">
+            <EntityTypeMapping TypeName="QLNVModel.PhongBan">
+              <MappingFragment StoreEntitySet="PhongBan">
+                <ScalarProperty Name="MaPhongBan" ColumnName="MaPhongBan" />
+                <ScalarProperty Name="TenPhongBan" ColumnName="TenPhongBan" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="QLNVModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="PWord" ColumnName="PWord" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="QLNVModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="WorkHistories">
-            <EntityTypeMapping TypeName="QLNVModel.WorkHistory">
-              <MappingFragment StoreEntitySet="WorkHistory">
-                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
-                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-                <ScalarProperty Name="HistoryID" ColumnName="HistoryID" />
+          <EntitySetMapping Name="ThoiGianCongTacs">
+            <EntityTypeMapping TypeName="QLNVModel.ThoiGianCongTac">
+              <MappingFragment StoreEntitySet="ThoiGianCongTac">
+                <ScalarProperty Name="MaCongTac" ColumnName="MaCongTac" />
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="MaChucVu" ColumnName="MaChucVu" />
+                <ScalarProperty Name="NgayNhanChuc" ColumnName="NgayNhanChuc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

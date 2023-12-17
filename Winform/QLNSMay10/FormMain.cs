@@ -87,9 +87,7 @@ namespace QLNSMay10
         private void chứcVụToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormChucVu chForm = new FormChucVu();
-            chForm.MdiParent = this;
-            chForm.FormBorderStyle = FormBorderStyle.None;
-            chForm.Dock = DockStyle.Fill;
+          
             chForm.Show();
         }
 
@@ -112,18 +110,45 @@ namespace QLNSMay10
 
         }
 
-        private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
+        //private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    FormThongke chForm = new FormThongke();
+        //    chForm.MdiParent = this;
+        //    chForm.FormBorderStyle = FormBorderStyle.None;
+        //    chForm.Dock = DockStyle.Fill;
+        //    chForm.Show();
+        //}
+
+        private void báoCáoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormThongke chForm = new FormThongke();
+            Form1Hotro chForm = new Form1Hotro();
             chForm.MdiParent = this;
             chForm.FormBorderStyle = FormBorderStyle.None;
             chForm.Dock = DockStyle.Fill;
             chForm.Show();
         }
 
-        private void báoCáoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void thốngKêTheoThángToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1Hotro chForm = new Form1Hotro();
+            FormThongkeThang chForm = new FormThongkeThang();
+            chForm.MdiParent = this;
+            chForm.FormBorderStyle = FormBorderStyle.None;
+            chForm.Dock = DockStyle.Fill;
+            chForm.Show();
+        }
+
+        private void thốngKêTheoQuýToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormThongKeQuy chForm = new FormThongKeQuy();
+            chForm.MdiParent = this;
+            chForm.FormBorderStyle = FormBorderStyle.None;
+            chForm.Dock = DockStyle.Fill;
+            chForm.Show();
+        }
+
+        private void thốngKêTheoNămToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormThongKeNam chForm = new FormThongKeNam();
             chForm.MdiParent = this;
             chForm.FormBorderStyle = FormBorderStyle.None;
             chForm.Dock = DockStyle.Fill;

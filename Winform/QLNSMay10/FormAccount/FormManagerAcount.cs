@@ -1,4 +1,5 @@
-﻿using QLNSMay10.ConnectSql;
+﻿using Newtonsoft.Json;
+using QLNSMay10.ConnectSql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,9 @@ namespace QLNSMay10.FormAccount
 {
     public partial class FormManagerAcount : Form
     {
-        QLNVEntities db = new QLNVEntities();
-        int checkid = 0;
+        QLNVEntities qlnv = new QLNVEntities();
+        BindingSource bd = new BindingSource();
+        int checkId = 0;
         public FormManagerAcount()
         {
             InitializeComponent();
@@ -22,9 +24,11 @@ namespace QLNSMay10.FormAccount
 
         private void FormManagerAcount_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLNVDataSet14.NguoiDung' table. You can move, or remove it, as needed.
+            this.nguoiDungTableAdapter.Fill(this.qLNVDataSet14.NguoiDung);
             // TODO: This line of code loads data into the 'qLNVDataSet1.User' table. You can move, or remove it, as needed.
             //this.userTableAdapter.Fill(this.qLNVDataSet1.User);
-        
+
 
         }
 
@@ -89,11 +93,7 @@ namespace QLNSMay10.FormAccount
             //}
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            txtPassword.Text = "";
-            txtUsername.Text = "";
-        }
+        
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -115,6 +115,119 @@ namespace QLNSMay10.FormAccount
            //     MessageBoxButtons.OK, MessageBoxIcon.Information);
            // }
            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtHoVaTen.Text = "";
+            txtTenDangNhap.Text = "";
+            txtMatKhau.Text = "";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var taikhoan = qlnv.NguoiDungs.SingleOrDefault(item => item.MaNguoiDung == checkId);
+            if (
+                txtHoVaTen.Text == "" || txtTenDangNhap.Text == "" || txtMatKhau.Text == "")
+            {
+                MessageBox.Show("Không để trống trường nào!", "Thông báo",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                taikhoan.HoVaTen = txtHoVaTen.Text;
+                taikhoan.Username = txtTenDangNhap.Text;
+                taikhoan.Password = txtMatKhau.Text;
+                qlnv.SaveChanges();
+                MessageBox.Show("Chỉnh sửa thành công! ", "Thông báo",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                bd.DataSource = qlnv.NguoiDungs.ToList();
+                dtgrNguoiDung.DataSource = bd.DataSource;
+                dtgrNguoiDung.Refresh();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string hovaten = txtHoVaTen.Text;
+            string tendangnhap = txtTenDangNhap.Text ;
+            string matkhau = txtMatKhau.Text;
+            DateTime ngaytao = DateTime.Now;
+            DateTime ngaycapnhat = DateTime.Now;
+            if (hovaten == "" || tendangnhap == "" || matkhau== "")
+            {
+                MessageBox.Show("Không để trống trường nào!", "Thông báo",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                var listNguoiDung = qlnv.NguoiDungs.ToList();
+                var result = listNguoiDung.Find(item => item.Username.Equals(tendangnhap));
+                if (result != null)
+                {
+                    MessageBox.Show("Đã có tài khoản này rồi mời nhập lại!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    NguoiDung nguoidung = new NguoiDung();
+                    nguoidung.HoVaTen = hovaten;
+                    nguoidung.Username = tendangnhap;
+                    nguoidung.Password = matkhau;
+                    nguoidung.NgayTao = ngaytao;
+                    nguoidung.NgayCapNhat = ngaycapnhat;
+                    qlnv.NguoiDungs.Add(nguoidung);
+                    qlnv.SaveChanges();
+                    bd.DataSource = qlnv.NguoiDungs.ToList();
+                    dtgrNguoiDung.DataSource = bd.DataSource; 
+                    dtgrNguoiDung.Refresh();
+                    MessageBox.Show("Thêm mới thành công! ", "Thông báo",
+                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.button2_Click(null, EventArgs.Empty);
+                }
+            }
+        }
+
+        private void dtgrNguoiDung_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            checkId = Int32.Parse(dtgrNguoiDung.Rows[e.RowIndex].Cells[0].Value.ToString());
+            if (e.RowIndex >= 0 && dtgrNguoiDung.Columns[e.ColumnIndex].Name == "chinhsua")
+            {
+                if (e.RowIndex < dtgrNguoiDung.Rows.Count && dtgrNguoiDung.SelectedCells.Count > 0)
+                {
+                    txtHoVaTen.Text = dtgrNguoiDung.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    txtTenDangNhap.Text = dtgrNguoiDung.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    txtMatKhau.Text = dtgrNguoiDung.Rows[e.RowIndex].Cells[3].Value.ToString();
+
+                }
+            }
+            if (e.RowIndex >= 0 && dtgrNguoiDung.Columns[e.ColumnIndex].Name == "xoa")
+            {
+                if (e.RowIndex < dtgrNguoiDung.Rows.Count && dtgrNguoiDung.SelectedCells.Count > 0)
+                {
+                    DialogResult result = MessageBox.Show("Bạn chắc chắn muốn xóa hàng này này chứ?", "Thông báo",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
+                    {
+
+
+                        var nguoidung = qlnv.NguoiDungs.SingleOrDefault(item => item.MaNguoiDung == checkId);
+                        Console.WriteLine("aaaa " + JsonConvert.SerializeObject(nguoidung, Formatting.Indented));
+                        if (nguoidung != null)
+                        {
+                            MessageBox.Show("Xóa thành công! ", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            qlnv.NguoiDungs.Remove(nguoidung);
+                            qlnv.SaveChanges();
+                            bd.DataSource = qlnv.NguoiDungs.ToList();
+                            dtgrNguoiDung.DataSource = bd.DataSource;
+                            dtgrNguoiDung.Refresh();
+                            this.button2_Click(null, EventArgs.Empty);
+                        }
+                    }
+                }
+
+            }
         }
     }
 }

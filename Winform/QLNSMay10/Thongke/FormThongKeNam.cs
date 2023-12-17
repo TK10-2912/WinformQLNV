@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QLNSMay10.testform
+namespace QLNSMay10.Thongke
 {
-    public partial class Form1 : Form
+    public partial class FormThongKeNam : Form
     {
-        public Form1()
+        public FormThongKeNam()
         {
             InitializeComponent();
         }

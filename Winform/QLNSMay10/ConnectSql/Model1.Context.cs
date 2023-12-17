@@ -25,13 +25,13 @@ namespace QLNSMay10.ConnectSql
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<PrintInfo> PrintInfoes { get; set; }
-        public virtual DbSet<Report> Reports { get; set; }
-        public virtual DbSet<SalaryPayment> SalaryPayments { get; set; }
-        public virtual DbSet<SalaryPolicy> SalaryPolicies { get; set; }
-        public virtual DbSet<SearchInfo> SearchInfoes { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<WorkHistory> WorkHistories { get; set; }
+        public virtual DbSet<ChucVu> ChucVus { get; set; }
+        public virtual DbSet<HeSoLuong> HeSoLuongs { get; set; }
+        public virtual DbSet<Luong> Luongs { get; set; }
+        public virtual DbSet<NguoiDung> NguoiDungs { get; set; }
+        public virtual DbSet<NhanVien> NhanViens { get; set; }
+        public virtual DbSet<PhongBan> PhongBans { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<ThoiGianCongTac> ThoiGianCongTacs { get; set; }
     }
 }
